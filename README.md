@@ -66,6 +66,10 @@ For testing, always use [Chai](http://chaijs.com/) and any assertion style that 
 
 You can run tests with `npm test`.
 
+### SQL Injection
+
+Make sure your code prevents SQL injection attacks. See these examples for [querying](https://github.com/cloudspokes/cs-api-node/blob/master/initializers/communities.js#L46) and [inserting records](https://github.com/cloudspokes/cs-api-node/blob/master/initializers/challenges.js#L184).
+
 ## Database Schema
 
 Here are the PG tables with some sample data. A sample query to return all events would look like:
