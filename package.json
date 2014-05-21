@@ -1,0 +1,30 @@
+{
+  "author": "Jeff Douglas <jeff@appirio.com>",
+  "name": "tco-api",
+  "description": "API for TopCoder Open",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "dependencies": {
+    "actionhero": "8.0.8",
+    "grunt": "latest",
+    "q": "~1.0.1",
+    "forcifier": "0.0.3",
+    "lodash": "~2.4.1",
+    "string": "~1.8.1",
+    "pg": "~3.1.0"
+  },
+  "devDependencies": {
+    "mocha": "latest",
+    "chai": "~1.9.1",
+    "request": "latest"
+  },
+  "scripts": {
+    "help": "actionhero help",
+    "start": "actionhero start",
+    "actionhero": "actionhero",
+    "startCluster": "actionhero startCluster",
+    "test": "mocha"
+  }
+}
