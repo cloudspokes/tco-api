@@ -70,6 +70,10 @@ You can run tests with `npm test`.
 
 Make sure your code prevents SQL injection attacks. See these examples for [querying](https://github.com/cloudspokes/cs-api-node/blob/master/initializers/communities.js#L46) and [inserting records](https://github.com/cloudspokes/cs-api-node/blob/master/initializers/challenges.js#L184).
 
+### Latest Code
+
+Before you start on a new issue, always do `git pull` to get the latest changes into your local branch.
+
 ## Database Schema
 
 Here are the PG tables with some sample data. A sample query to return all events would look like:
