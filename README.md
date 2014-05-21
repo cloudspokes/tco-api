@@ -4,6 +4,8 @@
 
 The API uses the ActionHero framework. If you are not familiar with it, please [checkout their wiki](http://actionherojs.com/wiki) especially the sections for actions and initializers. You may also want to check out their [tutorial](https://github.com/evantahler/actionhero-tutorial). There is also sample code in the /actions and /initializers directories above to get you started.
 
+[The API documentation is available at our apiary project](http://docs.tcoapi.apiary.io/) and should be used as the basis for building this API. Please refer to it often. If you find something wrong with the API or need something added or modified, please use github issues. All code submitted for this project must have accompanying tests or it will not be accepted.
+
 The data for the API resides in Salesforce and is sync'd to Postgres using [Heroku Connect](https://www.heroku.com/connect) (HC). When building the API you will only use Postgres but just be aware that data is being sync'd back and forth. You can [find more info on HC here](https://devcenter.heroku.com/articles/herokuconnect).
 
 When HC creates the tables in Postgres is uses the Salesforce style table and field names, except the database uses only lower-case letters. Therefore, the table that holds all of the Event data will be called `tco_event__c` and any custom fields that were added will also contain `__c`, example `start_time__c`. The Saleforce Id field is renamed as `sfid` in the database table.
