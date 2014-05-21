@@ -2289,3 +2289,11 @@
 {"level":"notice","message":"stopping server: web","timestamp":"2014-05-21T18:29:39.018Z"}
 {"level":"notice","message":"stopping server: websocket","timestamp":"2014-05-21T18:29:39.019Z"}
 {"level":"alert","message":"The actionhero has been stopped","timestamp":"2014-05-21T18:29:39.522Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-21T18:31:28.213Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-21T18:31:28.215Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-21T18:31:29.605Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-21 14:31:28 ***","timestamp":"2014-05-21T18:31:29.605Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-21T18:32:09.905Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-21T18:32:09.907Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-21T18:32:11.002Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-21 14:32:09 ***","timestamp":"2014-05-21T18:32:11.002Z"}

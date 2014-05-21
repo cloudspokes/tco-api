@@ -2,13 +2,13 @@
 
 ## Overview
 
-The API uses the ActionHero framework. If you are not familiar with it, please [checkout their wiki](http://actionherojs.com/wiki) especially the sections for actions and initializers. There is also sample code in the /actions and /initializers directories to get you started. You may also want to check out their [tutorial](https://github.com/evantahler/actionhero-tutorial).
+The API uses the ActionHero framework. If you are not familiar with it, please [checkout their wiki](http://actionherojs.com/wiki) especially the sections for actions and initializers. You may also want to check out their [tutorial](https://github.com/evantahler/actionhero-tutorial). There is also sample code in the /actions and /initializers directories above to get you started.
 
 The data for the API resides in Salesforce and is sync'd to Postgres using [Heroku Connect](https://www.heroku.com/connect) (HC). When building the API you will only use Postgres but just be aware that data is being sync'd back and forth. You can [find more info on HC here](https://devcenter.heroku.com/articles/herokuconnect).
 
 When HC creates the tables in Postgres is uses the Salesforce style table and field names, except the database uses only lower-case letters. Therefore, the table that holds all of the Event data will be called `tco_event__c` and any custom fields that were added will also contain `__c`, example `start_time__c`. The Saleforce Id field is renamed as `sfid` in the database table.
 
-For more info on connecting to PG from the command line, see [Accessing the synchronized tables](https://devcenter.heroku.com/articles/herokuconnect#accessing-the-synchronized-tables). To connect in terminal use:
+For more info on connecting to PG from the command line, see [Accessing the synchronized tables](https://devcenter.heroku.com/articles/herokuconnect#accessing-the-synchronized-tables). To connect in terminal use the connection string you were provided:
 
 ```
 psql [CONNECTION-STRING]
@@ -16,7 +16,7 @@ psql [CONNECTION-STRING]
 
 The API should **not** return fields to the client with `__c`. There are two ways to remove these:
 
-1. Use the [forcifier package](https://github.com/jeffdonthemic/forcifier-node) to remove the `__c` from the JSON before returning the results:
+1 - Use the [forcifier package](https://github.com/jeffdonthemic/forcifier-node) to remove the `__c` from the JSON before returning the results:
 
 ```javascript
 var forcifier = require('forcifier');
@@ -31,7 +31,7 @@ client.connect(function(err) {
 })
 ```
 
-2. Alias the columns in the query. This may be the easiest route:
+2 - Alias the columns in the query. This may be the easiest route:
 
 ```javascript
 var client = new pg.Client(api.config.general.pg.connString);
