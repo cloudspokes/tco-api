@@ -53,7 +53,7 @@ client.connect(function(err) {
 
 ## Installation
 
-You should be able to clone this repo, run `npm install` and then `npm start` to start the app on port 8080.
+You should be able to fork this repo, run `npm install` and then `npm start` to start the app on port 8080.
 
 ## Development
 
