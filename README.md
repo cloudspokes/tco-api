@@ -10,11 +10,12 @@ The data for the API resides in Salesforce and is sync'd to Postgres using [Hero
 
 When HC creates the tables in Postgres is uses the Salesforce style table and field names, except the database uses only lower-case letters. Therefore, the table that holds all of the Event data will be called `tco_event__c` and any custom fields that were added will also contain `__c`, example `start_time__c`. The Saleforce Id field is renamed as `sfid` in the database table.
 
-For more info on connecting to PG from the command line, see [Accessing the synchronized tables](https://devcenter.heroku.com/articles/herokuconnect#accessing-the-synchronized-tables). To connect in terminal use the connection string you were provided:
+For more info on connecting to PG from the command line, see [Accessing the synchronized tables](https://devcenter.heroku.com/articles/herokuconnect#accessing-the-synchronized-tables). To connect in terminal use the connection string you were provided
 
 ```
 psql [CONNECTION-STRING]
 set search_path=salesforce,public;
+\d
 ```
 
 The API should **not** return fields to the client with `__c`. There are two ways to remove these:
