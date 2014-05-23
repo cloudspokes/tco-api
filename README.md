@@ -14,6 +14,7 @@ For more info on connecting to PG from the command line, see [Accessing the sync
 
 ```
 psql [CONNECTION-STRING]
+set search_path=salesforce,public;
 ```
 
 The API should **not** return fields to the client with `__c`. There are two ways to remove these:
