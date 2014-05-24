@@ -18,6 +18,12 @@ set search_path=salesforce,public;
 \d
 ```
 
+For your application, add the connection string to your environment with:
+
+```
+exports [CONNECTION-STRING]
+```
+
 The API should **not** return fields to the client with `__c`. There are two ways to remove these:
 
 1 - Use the [forcifier package](https://github.com/jeffdonthemic/forcifier-node) to remove the `__c` from the JSON before returning the results:

@@ -2297,3 +2297,24 @@
 {"level":"warning","message":"running with fakeredis","timestamp":"2014-05-21T18:32:09.907Z"}
 {"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-21T18:32:11.002Z"}
 {"level":"notice","message":"*** Server Started @ 2014-05-21 14:32:09 ***","timestamp":"2014-05-21T18:32:11.002Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-24T11:02:09.164Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-24T11:02:09.167Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-24T11:02:10.961Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-24 07:02:09 ***","timestamp":"2014-05-24T11:02:10.961Z"}
+{"to":"127.0.0.1","action":"tcosList","params":"{\"action\":\"tcosList\",\"apiVersion\":1}","duration":917,"error":"null","level":"info","message":"[ action @ web ]","timestamp":"2014-05-24T11:02:18.075Z"}
+{"level":"error","message":"! uncaught error from action: tcosList","timestamp":"2014-05-24T13:13:58.213Z"}
+{"level":"error","message":"! connection details:","timestamp":"2014-05-24T13:13:58.214Z"}
+{"level":"error","message":"!     action: \"tcosList\"","timestamp":"2014-05-24T13:13:58.215Z"}
+{"level":"error","message":"!     remoteIP: \"127.0.0.1\"","timestamp":"2014-05-24T13:13:58.215Z"}
+{"level":"error","message":"!     type: \"web\"","timestamp":"2014-05-24T13:13:58.215Z"}
+{"level":"error","message":"!     params: {\"action\":\"tcosList\",\"apiVersion\":1}","timestamp":"2014-05-24T13:13:58.215Z"}
+{"level":"error","message":"! Error: connection pointer is NULL","timestamp":"2014-05-24T13:13:58.219Z"}
+{"level":"error","message":"! ","timestamp":"2014-05-24T13:13:58.219Z"}
+{"level":"error","message":"!     at Connection.<anonymous> (/Users/Jeff/git/tco-api/node_modules/pg/lib/native/index.js:184:17)","timestamp":"2014-05-24T13:13:58.219Z"}
+{"level":"error","message":"!     at Connection.EventEmitter.emit (events.js:95:17)","timestamp":"2014-05-24T13:13:58.219Z"}
+{"level":"error","message":"*","timestamp":"2014-05-24T13:13:58.219Z"}
+{"to":"127.0.0.1","action":"tcosList","params":"{\"action\":\"tcosList\",\"apiVersion\":1}","duration":7901066,"error":"\"Error: The server experienced an internal error\"","level":"info","message":"[ action @ web ]","timestamp":"2014-05-24T13:13:58.221Z"}
+{"level":"alert","message":"Shutting down open servers and stopping task processing","timestamp":"2014-05-24T13:29:51.784Z"}
+{"level":"notice","message":"stopping server: web","timestamp":"2014-05-24T13:29:51.788Z"}
+{"level":"notice","message":"stopping server: websocket","timestamp":"2014-05-24T13:29:51.788Z"}
+{"level":"alert","message":"The actionhero has been stopped","timestamp":"2014-05-24T13:29:52.377Z"}
