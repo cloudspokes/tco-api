@@ -13,7 +13,7 @@ describe('events', function(){
     done();
   });
 
-  it("/event should return an array with only valid attributes", function(done){
+  it("/tcos/#{tco_id}/events/#{id} should return an array with only valid attributes", function(done){
     this.timeout(5000);
     tco_id = "tco14";
     id = 1;
