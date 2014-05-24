@@ -21,7 +21,7 @@ set search_path=salesforce,public;
 For your application, add the connection string to your environment with:
 
 ```
-exports [CONNECTION-STRING]
+export CLOUDCONNECT_CONN=[CONNECTION-STRING]
 ```
 
 The API should **not** return fields to the client with `__c`. There are two ways to remove these:
