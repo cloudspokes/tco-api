@@ -29,4 +29,29 @@ describe('events', function(){
     });
   });  
 
+
+  it("/tcos/#{tco_id}/events{?type,date} should return array with only valid attributes", function(done){
+    this.timeout(5000);
+    tco_id = "tco14";
+    type = "Competition";
+    date = "2014-05-21";
+    attributes = ["id","name","type","details","start_time","end_time","location","tco_id"];
+    request.get(setup.testUrl + "/tcos/"+tco_id+"/events?type="+type+"&date="+date, function(err, res, body){
+      body = JSON.parse(body);
+      res.statusCode.should.equal(200);
+      body.count.should.equal(1);
+      body.response.should.be.an.instanceOf(Array);
+      body.response[0]["type"].should.equal(type);
+      var start_time = new Date(body.response[0]["start_time"]);
+      var end_time = new Date(body.response[0]["end_time"]);
+      date = new Date(date);
+      date.getDate().should.be.at.least(start_time.getDate());
+      date.getDate().should.be.at.most(end_time.getDate());
+      date.getMonth().should.be.at.least(start_time.getMonth());
+      date.getMonth().should.be.at.most(end_time.getMonth());
+      JSON.stringify(Object.keys(body.response[0])).should.equal(JSON.stringify(attributes));
+      done();
+    });
+  });  
+
 });
