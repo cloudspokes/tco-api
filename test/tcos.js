@@ -21,6 +21,29 @@ describe('tcos', function(){
       body.response.should.be.an.instanceOf(Array)
       done();
     });
-  });  
+  });
+
+  /*
+   * Tests Retrieve Album: GET /tcos/{tco_id}/albums/{id}
+   */
+  it("/tcos/{tco_id}/albums/{id} should return an album", function(done) {
+    this.timeout(10000);
+    attributes = [ 'id', 'tco_id', 'name', 'cover' ];
+    tco_id = 'tco14';
+    id = 1;
+    request.get(setup.testUrl + "/tcos/" + tco_id + "/albums/" + id,
+      function (err, res, body) {
+        body = JSON.parse(body);
+        console.log(body);
+        res.statusCode.should.equal(200);
+        body.count.should.equal(1);
+        body.response.should.be.an.instanceof(Array);
+        body.response[0].tco_id.should.equal(tco_id);
+        body.response[0].id.should.equal(id);
+        body.response[0].should.to.have.keys(attributes);
+        done();
+      }
+    );
+  });
 
 });
