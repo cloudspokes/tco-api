@@ -27,7 +27,7 @@ describe('tcos', function(){
    * Tests Retrieve Album: GET /tcos/{tco_id}/albums/{id}
    */
   it("/tcos/{tco_id}/albums/{id} should return an album", function(done) {
-    this.timeout(10000);
+    this.timeout(5000);
     attributes = [ 'id', 'tco_id', 'name', 'cover' ];
     tco_id = 'tco14';
     id = 1;
