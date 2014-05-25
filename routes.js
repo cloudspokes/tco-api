@@ -49,6 +49,10 @@ exports.routes = {
     { path: '/tcos/:tco_id/attendees', action: 'attendeesList' },
     { path: '/tcos/:id', action: 'tco' },
     { path: '/tcos', action: 'tcosList' }
+  ],
+
+  delete: [
+    { path: '/tcos/:tco_id/messages/:id', action: 'deleteMessage' }
   ]
 
 };

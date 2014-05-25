@@ -1,6 +1,7 @@
 var request = require("request");
 var should = require('chai').should();
 var setup = require("./_setup.js")._setup;
+var Q = require("q");
 
 describe('messages', function(){
 
@@ -84,7 +85,7 @@ describe('messages', function(){
   }); 
 
   it("/tcos/#{tco_id}/messages{?from,to} should NOT return values", function(done){
-    this.timeout(15000);
+    this.timeout(5000);
     tco_id = "tco14";
     from = 1;
     to = 1;
@@ -97,5 +98,66 @@ describe('messages', function(){
       done();
     });
   }); 
+
+  describe('DELETE a message', function(){
+
+    before(function(done){
+      api = setup.api;
+      api.actions.versions.testAddMessage = [1]
+        api.actions.actions.testAddMessage = {
+          '1': {
+            name:                   'testAddMessage',
+            description:            'Adds a sample TEST message. Method: POST',
+            outputExample:          {},
+            matchExtensionMimeType: false,
+            version:                1.0,
+            toDocument:             true,
+            inputs: {
+              required: ['id'],
+              optional: []
+            },
+
+            run: function(api, connection, next){
+              api.messages.addTestMessage(connection.params,function(data){
+                connection.response.response = data;
+                connection.response.count = data.length;
+                next(connection, true);
+              });
+            }
+          }
+        }
+        done();
+    });
+
+    after(function(done){
+      done();
+    });
+
+
+    it("/tcos/#{tco_id}/messages/#{id} should delete a message", function(done){      
+      // Needs more timeout as it will insert a sample test message and then delete the same.
+      this.timeout(10000); 
+      tco_id = "tco14";
+      id = 3; // Same Id as we insert.
+      addTestMessage().then(function (result){
+        request.del(setup.testUrl + "/tcos/"+tco_id+"/messages/"+id, function(err, res, body){
+          body = JSON.parse(body);
+          res.statusCode.should.equal(200);
+          body.response["rowCount"].should.equal(1);
+          done();
+        });
+      });
+    }); 
+
+    function addTestMessage() {
+      var deferred = Q.defer();
+      request.post(setup.testUrl + "/testAddMessage",{form: {id: 3}}, function(err, res, body){
+        if (err) deferred.reject(err);
+        if (!err) deferred.resolve(res);
+      });
+           
+      return deferred.promise;
+    } 
+});
 
 });
