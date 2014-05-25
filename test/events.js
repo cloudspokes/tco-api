@@ -24,7 +24,7 @@ describe('events', function(){
       body.count.should.equal(1);
       body.response.should.be.an.instanceOf(Array);
       body.response[0]["id"].should.equal(id);
-      JSON.stringify(Object.keys(body.response[0])).should.equal(JSON.stringify(attributes));
+      body.response[0].should.have.keys(attributes);
       done();
     });
   });  
@@ -49,7 +49,7 @@ describe('events', function(){
       date.getDate().should.be.at.most(end_time.getDate());
       date.getMonth().should.be.at.least(start_time.getMonth());
       date.getMonth().should.be.at.most(end_time.getMonth());
-      JSON.stringify(Object.keys(body.response[0])).should.equal(JSON.stringify(attributes));
+      body.response[0].should.have.keys(attributes);
       done();
     });
   });  
