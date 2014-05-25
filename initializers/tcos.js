@@ -16,8 +16,8 @@ exports.tcos = function(api, next){
         client.query(sql, function(err, rs) {
           if (err) next(err);
           if (!err) next(forcifier.deforceJson(rs['rows']));
-        });
-      });
+        })
+      })
     },
 
     album: function(tco_id, id, next) {
