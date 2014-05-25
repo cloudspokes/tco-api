@@ -15,12 +15,78 @@ exports.tcos = function(api, next){
          "from salesforce.TCO__c order by start_date__c desc";
         client.query(sql, function(err, rs) {
           if (err) next(err);
-          if (!err) next(forcifier.deforceJson(rs['rows']));         
+          if (!err) next(forcifier.deforceJson(rs['rows']));
         })
       })
-    }
+    },
 
-  };
+    album: function(tco_id, id, next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "SELECT album.id as id, unique_id__c as tco_id, " +
+        "album.name as name, cover__c as cover " +
+        "FROM salesforce.tco_album__c as album " +
+        "INNER JOIN salesforce.tco__c as tco ON album.tco__c = tco.sfid " +
+        "WHERE unique_id__c = $1 AND album.id = $2";
+        client.query(sql, [tco_id, id], function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs['rows']);
+        });
+      });
+    },
+
+    news: function(tco_id, id, next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "SELECT news.id, unique_id__c as tco_id, " +
+        "news.name, source_url__c as source_url, source__c as source, " +
+        "to_char(news.createddate, 'YYYY-MM-DD HH24:MI:SS') as creation_date, " +
+        "content__c as content " +
+        "FROM salesforce.tco_news__c as news INNER JOIN salesforce.tco__c " +
+        "ON news.tco__c = tco__c.sfid " +
+        "WHERE unique_id__c = $1 AND news.id = $2";
+        client.query(sql, [tco_id, id], function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs['rows']);
+        });
+      });
+    },
+
+    sponsor: function(tco_id, id, next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "SELECT sponsor.id, unique_id__c as tco_id, " +
+          "sponsor.name, sponsor.level__c as level, " +
+          "sponsor.logo__c as logo_url, sponsor.video__c as video_url, " +
+          "sponsor.description__c as description " +
+          "FROM salesforce.tco__c " +
+          "INNER JOIN salesforce.tco_sponsor__c as sponsor " +
+          "ON sponsor.tco__c = salesforce.tco__c.sfid " +
+          "WHERE unique_id__c = $1 AND sponsor.id = $2";
+        client.query(sql, [tco_id, id], function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs['rows']);
+        });
+      });
+    },
+
+    sponsorsList: function(next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "SELECT sponsor.id, unique_id__c as tco_id, " +
+          "sponsor.name, sponsor.level__c as level, " +
+          "sponsor.logo__c as logo_url, sponsor.video__c as video_url, " +
+          "sponsor.description__c as description " +
+          "FROM salesforce.tco__c " +
+          "INNER JOIN salesforce.tco_sponsor__c as sponsor " +
+          "ON sponsor.tco__c = salesforce.tco__c.sfid";
+        client.query(sql, function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs['rows']);
+        });
+      });
+    }
+  },
 
   next();
 }
