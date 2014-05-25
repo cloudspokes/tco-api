@@ -97,4 +97,28 @@ describe('tcos', function(){
     );
   });
 
+  /*
+   * Tests list all Sponsors: GET /tcos/{tco_id}/sponsors
+   */
+  it("/tcos/{tco_id}/sponsors should return all sponsors", function(done) {
+    this.timeout(timeoutInterval);
+    attributes = [ 'id', 'tco_id', 'name', 'level',
+                   'logo_url', 'video_url', 'description' ];
+    tco_id = 'tco14'
+    request.get(setup.testUrl + "/tcos/" + tco_id + "/sponsors",
+      function (err, res, body) {
+        body = JSON.parse(body);
+        console.log(body);
+        res.statusCode.should.equal(200);
+        body.count.should.equal(2);
+        body.response.should.be.an.instanceof(Array);
+        for (var i = 0; i < body.count; ++i) {
+          body.response[i].tco_id.should.equal(tco_id);
+          body.response[i].should.to.have.keys(attributes);
+        }
+        done();
+      }
+    );
+  });
+
 });
