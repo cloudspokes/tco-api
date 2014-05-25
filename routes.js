@@ -46,6 +46,7 @@ exports.routes = {
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
     { path: '/tcos/:tco_id/albums/:id', action: 'album' },
     { path: '/tcos/:tco_id/news/:id', action: 'news' },
+    { path: '/tcos/:tco_id/sponsor/:id', action: 'sponsor' },
     { path: '/tcos', action: 'tcosList' }
   ]
 
