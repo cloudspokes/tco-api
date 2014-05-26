@@ -2318,3 +2318,184 @@
 {"level":"notice","message":"stopping server: web","timestamp":"2014-05-24T13:29:51.788Z"}
 {"level":"notice","message":"stopping server: websocket","timestamp":"2014-05-24T13:29:51.788Z"}
 {"level":"alert","message":"The actionhero has been stopped","timestamp":"2014-05-24T13:29:52.377Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-26T10:23:41.666Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-26T10:23:41.669Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-26T10:23:42.841Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-26 12:23:41 ***","timestamp":"2014-05-26T10:23:42.842Z"}
+{"level":"error","message":"! uncaught error from action: album","timestamp":"2014-05-26T10:23:42.871Z"}
+{"level":"error","message":"! connection details:","timestamp":"2014-05-26T10:23:42.872Z"}
+{"level":"error","message":"!     action: \"album\"","timestamp":"2014-05-26T10:23:42.872Z"}
+{"level":"error","message":"!     remoteIP: \"127.0.0.1\"","timestamp":"2014-05-26T10:23:42.872Z"}
+{"level":"error","message":"!     type: \"web\"","timestamp":"2014-05-26T10:23:42.872Z"}
+{"level":"error","message":"!     params: {\"tco_id\":\"tco14\",\"id\":\"1\",\"action\":\"album\",\"apiVersion\":1}","timestamp":"2014-05-26T10:23:42.872Z"}
+{"level":"error","message":"! TypeError: Object #<Object> has no method 'album'","timestamp":"2014-05-26T10:23:42.875Z"}
+{"level":"error","message":"!     at Object.exports.album.run (/home/ibraaaa/contents/Topcoder/code/tco_api/tco-api/actions/albums.js:14:14)","timestamp":"2014-05-26T10:23:42.876Z"}
+{"level":"error","message":"!     at /home/ibraaaa/contents/Topcoder/code/tco_api/tco-api/node_modules/actionhero/initializers/actionProcessor.js:217:37","timestamp":"2014-05-26T10:23:42.876Z"}
+{"level":"error","message":"!     at api.actionProcessor.preProcessAction (/home/ibraaaa/contents/Topcoder/code/tco_api/tco-api/node_modules/actionhero/initializers/actionProcessor.js:102:7)","timestamp":"2014-05-26T10:23:42.876Z"}
+{"level":"error","message":"!     at Object._onImmediate (/home/ibraaaa/contents/Topcoder/code/tco_api/tco-api/node_modules/actionhero/initializers/actionProcessor.js:213:18)","timestamp":"2014-05-26T10:23:42.876Z"}
+{"level":"error","message":"!     at processImmediate [as _immediateCallback] (timers.js:336:15)","timestamp":"2014-05-26T10:23:42.876Z"}
+{"level":"error","message":"*","timestamp":"2014-05-26T10:23:42.876Z"}
+{"to":"127.0.0.1","action":"album","params":"{\"tco_id\":\"tco14\",\"id\":\"1\",\"action\":\"album\",\"apiVersion\":1}","duration":7,"error":"\"Error: The server experienced an internal error\"","level":"info","message":"[ action @ web ]","timestamp":"2014-05-26T10:23:42.879Z"}
+{"level":"alert","message":"Shutting down open servers and stopping task processing","timestamp":"2014-05-26T10:23:42.886Z"}
+{"level":"notice","message":"stopping server: web","timestamp":"2014-05-26T10:23:42.889Z"}
+{"level":"notice","message":"stopping server: websocket","timestamp":"2014-05-26T10:23:42.889Z"}
+{"level":"alert","message":"The actionhero has been stopped","timestamp":"2014-05-26T10:23:43.395Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-26T10:23:43.419Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-26T10:23:43.419Z"}
+{"level":"info","message":"running custom initializer: albums","timestamp":"2014-05-26T10:23:43.428Z"}
+{"level":"info","message":"running custom initializer: events","timestamp":"2014-05-26T10:23:43.429Z"}
+{"level":"info","message":"running custom initializer: middleware","timestamp":"2014-05-26T10:23:43.429Z"}
+{"level":"info","message":"running custom initializer: tcos","timestamp":"2014-05-26T10:23:43.429Z"}
+{"level":"notice","message":"running in development mode","timestamp":"2014-05-26T10:23:43.430Z"}
+{"level":"info","message":"environment: development","timestamp":"2014-05-26T10:23:43.430Z"}
+{"level":"notice","message":"pid: 13806","timestamp":"2014-05-26T10:23:43.430Z"}
+{"level":"info","message":"ensuring the existence of the chatRoom: defaultRoom","timestamp":"2014-05-26T10:23:43.433Z"}
+{"level":"notice","message":"starting server: web","timestamp":"2014-05-26T10:23:43.434Z"}
+{"level":"notice","message":"starting server: websocket","timestamp":"2014-05-26T10:23:43.434Z"}
+{"level":"notice","message":"webSockets bound to 0.0.0.0:8080 mounted at /faye","timestamp":"2014-05-26T10:23:43.435Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-26T10:23:44.434Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-26 12:23:43 ***","timestamp":"2014-05-26T10:23:44.435Z"}
+{"level":"notice","message":"actionhero restarted","timestamp":"2014-05-26T10:23:44.435Z"}
+{"to":"127.0.0.1","action":"tcosList","params":"{\"action\":\"tcosList\",\"apiVersion\":1}","duration":1856,"error":"null","level":"info","message":"[ action @ web ]","timestamp":"2014-05-26T10:23:46.307Z"}
+{"level":"error","message":"! uncaught error from action: album","timestamp":"2014-05-26T10:23:46.318Z"}
+{"level":"error","message":"! connection details:","timestamp":"2014-05-26T10:23:46.318Z"}
+{"level":"error","message":"!     action: \"album\"","timestamp":"2014-05-26T10:23:46.318Z"}
+{"level":"error","message":"!     remoteIP: \"127.0.0.1\"","timestamp":"2014-05-26T10:23:46.319Z"}
+{"level":"error","message":"!     type: \"web\"","timestamp":"2014-05-26T10:23:46.319Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-26T10:24:35.439Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-26T10:24:35.441Z"}
+{"level":"info","message":"running custom initializer: albums","timestamp":"2014-05-26T10:24:35.536Z"}
+{"level":"info","message":"running custom initializer: events","timestamp":"2014-05-26T10:24:35.536Z"}
+{"level":"info","message":"running custom initializer: middleware","timestamp":"2014-05-26T10:24:35.536Z"}
+{"level":"info","message":"running custom initializer: tcos","timestamp":"2014-05-26T10:24:35.536Z"}
+{"level":"notice","message":"running in development mode","timestamp":"2014-05-26T10:24:35.537Z"}
+{"level":"info","message":"environment: development","timestamp":"2014-05-26T10:24:35.537Z"}
+{"level":"notice","message":"pid: 13877","timestamp":"2014-05-26T10:24:35.538Z"}
+{"level":"info","message":"ensuring the existence of the chatRoom: defaultRoom","timestamp":"2014-05-26T10:24:35.551Z"}
+{"level":"notice","message":"starting server: web","timestamp":"2014-05-26T10:24:35.554Z"}
+{"level":"notice","message":"starting server: websocket","timestamp":"2014-05-26T10:24:35.555Z"}
+{"level":"notice","message":"webSockets bound to 0.0.0.0:8080 mounted at /faye","timestamp":"2014-05-26T10:24:35.555Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-26T10:24:36.547Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-26 12:24:35 ***","timestamp":"2014-05-26T10:24:36.548Z"}
+{"level":"error","message":"! uncaught error from action: album","timestamp":"2014-05-26T10:24:36.572Z"}
+{"level":"error","message":"! connection details:","timestamp":"2014-05-26T10:24:36.572Z"}
+{"level":"error","message":"!     action: \"album\"","timestamp":"2014-05-26T10:24:36.573Z"}
+{"level":"error","message":"!     remoteIP: \"127.0.0.1\"","timestamp":"2014-05-26T10:24:36.573Z"}
+{"level":"error","message":"!     type: \"web\"","timestamp":"2014-05-26T10:24:36.573Z"}
+{"level":"error","message":"!     params: {\"tco_id\":\"tco14\",\"id\":\"1\",\"action\":\"album\",\"apiVersion\":1}","timestamp":"2014-05-26T10:24:36.573Z"}
+{"level":"error","message":"! TypeError: Object #<Object> has no method 'album'","timestamp":"2014-05-26T10:24:36.576Z"}
+{"level":"error","message":"!     at Object.exports.album.run (/home/ibraaaa/contents/Topcoder/code/tco_api/tco-api/actions/albums.js:14:14)","timestamp":"2014-05-26T10:24:36.576Z"}
+{"level":"error","message":"!     at /home/ibraaaa/contents/Topcoder/code/tco_api/tco-api/node_modules/actionhero/initializers/actionProcessor.js:217:37","timestamp":"2014-05-26T10:24:36.577Z"}
+{"level":"error","message":"!     at api.actionProcessor.preProcessAction (/home/ibraaaa/contents/Topcoder/code/tco_api/tco-api/node_modules/actionhero/initializers/actionProcessor.js:102:7)","timestamp":"2014-05-26T10:24:36.577Z"}
+{"level":"error","message":"!     at Object._onImmediate (/home/ibraaaa/contents/Topcoder/code/tco_api/tco-api/node_modules/actionhero/initializers/actionProcessor.js:213:18)","timestamp":"2014-05-26T10:24:36.577Z"}
+{"level":"error","message":"!     at processImmediate [as _immediateCallback] (timers.js:336:15)","timestamp":"2014-05-26T10:24:36.577Z"}
+{"level":"error","message":"*","timestamp":"2014-05-26T10:24:36.577Z"}
+{"to":"127.0.0.1","action":"album","params":"{\"tco_id\":\"tco14\",\"id\":\"1\",\"action\":\"album\",\"apiVersion\":1}","duration":9,"error":"\"Error: The server experienced an internal error\"","level":"info","message":"[ action @ web ]","timestamp":"2014-05-26T10:24:36.580Z"}
+{"level":"alert","message":"Shutting down open servers and stopping task processing","timestamp":"2014-05-26T10:24:36.587Z"}
+{"level":"notice","message":"stopping server: web","timestamp":"2014-05-26T10:24:36.590Z"}
+{"level":"notice","message":"stopping server: websocket","timestamp":"2014-05-26T10:24:36.591Z"}
+{"level":"alert","message":"The actionhero has been stopped","timestamp":"2014-05-26T10:24:37.097Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-26T10:24:37.120Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-26T10:24:37.121Z"}
+{"level":"info","message":"running custom initializer: albums","timestamp":"2014-05-26T10:24:37.129Z"}
+{"level":"info","message":"running custom initializer: events","timestamp":"2014-05-26T10:24:37.130Z"}
+{"level":"info","message":"running custom initializer: middleware","timestamp":"2014-05-26T10:24:37.130Z"}
+{"level":"info","message":"running custom initializer: tcos","timestamp":"2014-05-26T10:24:37.130Z"}
+{"level":"notice","message":"running in development mode","timestamp":"2014-05-26T10:24:37.130Z"}
+{"level":"info","message":"environment: development","timestamp":"2014-05-26T10:24:37.130Z"}
+{"level":"notice","message":"pid: 13877","timestamp":"2014-05-26T10:24:37.131Z"}
+{"level":"info","message":"ensuring the existence of the chatRoom: defaultRoom","timestamp":"2014-05-26T10:24:37.134Z"}
+{"level":"notice","message":"starting server: web","timestamp":"2014-05-26T10:24:37.136Z"}
+{"level":"notice","message":"starting server: websocket","timestamp":"2014-05-26T10:24:37.136Z"}
+{"level":"notice","message":"webSockets bound to 0.0.0.0:8080 mounted at /faye","timestamp":"2014-05-26T10:24:37.137Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-26T10:24:38.134Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-26 12:24:37 ***","timestamp":"2014-05-26T10:24:38.135Z"}
+{"level":"notice","message":"actionhero restarted","timestamp":"2014-05-26T10:24:38.136Z"}
+{"to":"127.0.0.1","action":"tcosList","params":"{\"action\":\"tcosList\",\"apiVersion\":1}","duration":1917,"error":"null","level":"info","message":"[ action @ web ]","timestamp":"2014-05-26T10:24:40.069Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-26T10:26:53.658Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-26T10:26:53.660Z"}
+{"level":"info","message":"running custom initializer: albums","timestamp":"2014-05-26T10:26:53.755Z"}
+{"level":"info","message":"running custom initializer: events","timestamp":"2014-05-26T10:26:53.755Z"}
+{"level":"info","message":"running custom initializer: middleware","timestamp":"2014-05-26T10:26:53.755Z"}
+{"level":"info","message":"running custom initializer: tcos","timestamp":"2014-05-26T10:26:53.755Z"}
+{"level":"notice","message":"running in development mode","timestamp":"2014-05-26T10:26:53.756Z"}
+{"level":"info","message":"environment: development","timestamp":"2014-05-26T10:26:53.756Z"}
+{"level":"notice","message":"pid: 13999","timestamp":"2014-05-26T10:26:53.757Z"}
+{"level":"info","message":"ensuring the existence of the chatRoom: defaultRoom","timestamp":"2014-05-26T10:26:53.771Z"}
+{"level":"notice","message":"starting server: web","timestamp":"2014-05-26T10:26:53.773Z"}
+{"level":"notice","message":"starting server: websocket","timestamp":"2014-05-26T10:26:53.774Z"}
+{"level":"notice","message":"webSockets bound to 0.0.0.0:8080 mounted at /faye","timestamp":"2014-05-26T10:26:53.775Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-26T10:26:54.771Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-26 12:26:53 ***","timestamp":"2014-05-26T10:26:54.772Z"}
+{"to":"127.0.0.1","action":"album","params":"{\"tco_id\":\"tco14\",\"id\":\"1\",\"action\":\"album\",\"apiVersion\":1}","duration":1670,"error":"null","level":"info","message":"[ action @ web ]","timestamp":"2014-05-26T10:26:56.474Z"}
+{"level":"alert","message":"Shutting down open servers and stopping task processing","timestamp":"2014-05-26T10:26:56.483Z"}
+{"level":"notice","message":"stopping server: web","timestamp":"2014-05-26T10:26:56.485Z"}
+{"level":"notice","message":"stopping server: websocket","timestamp":"2014-05-26T10:26:56.486Z"}
+{"level":"alert","message":"The actionhero has been stopped","timestamp":"2014-05-26T10:26:56.991Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-26T10:26:57.014Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-26T10:26:57.014Z"}
+{"level":"info","message":"running custom initializer: albums","timestamp":"2014-05-26T10:26:57.029Z"}
+{"level":"info","message":"running custom initializer: events","timestamp":"2014-05-26T10:26:57.030Z"}
+{"level":"info","message":"running custom initializer: middleware","timestamp":"2014-05-26T10:26:57.030Z"}
+{"level":"info","message":"running custom initializer: tcos","timestamp":"2014-05-26T10:26:57.031Z"}
+{"level":"notice","message":"running in development mode","timestamp":"2014-05-26T10:26:57.031Z"}
+{"level":"info","message":"environment: development","timestamp":"2014-05-26T10:26:57.031Z"}
+{"level":"notice","message":"pid: 13999","timestamp":"2014-05-26T10:26:57.032Z"}
+{"level":"info","message":"ensuring the existence of the chatRoom: defaultRoom","timestamp":"2014-05-26T10:26:57.034Z"}
+{"level":"notice","message":"starting server: web","timestamp":"2014-05-26T10:26:57.034Z"}
+{"level":"notice","message":"starting server: websocket","timestamp":"2014-05-26T10:26:57.035Z"}
+{"level":"notice","message":"webSockets bound to 0.0.0.0:8080 mounted at /faye","timestamp":"2014-05-26T10:26:57.035Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-26T10:26:58.036Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-26 12:26:57 ***","timestamp":"2014-05-26T10:26:58.036Z"}
+{"level":"notice","message":"actionhero restarted","timestamp":"2014-05-26T10:26:58.037Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-26T10:29:39.664Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-26T10:29:39.666Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-26T10:29:40.775Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-26 12:29:39 ***","timestamp":"2014-05-26T10:29:40.775Z"}
+{"to":"127.0.0.1","action":"album","params":"{\"tco_id\":\"tco14\",\"id\":\"1\",\"action\":\"album\",\"apiVersion\":1}","duration":1705,"error":"null","level":"info","message":"[ action @ web ]","timestamp":"2014-05-26T10:29:42.507Z"}
+{"level":"alert","message":"Shutting down open servers and stopping task processing","timestamp":"2014-05-26T10:29:42.524Z"}
+{"level":"notice","message":"stopping server: web","timestamp":"2014-05-26T10:29:42.527Z"}
+{"level":"notice","message":"stopping server: websocket","timestamp":"2014-05-26T10:29:42.527Z"}
+{"level":"alert","message":"The actionhero has been stopped","timestamp":"2014-05-26T10:29:43.032Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-26T10:29:43.048Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-26T10:29:43.048Z"}
+{"level":"info","message":"running custom initializer: albums","timestamp":"2014-05-26T10:29:43.059Z"}
+{"level":"info","message":"running custom initializer: events","timestamp":"2014-05-26T10:29:43.059Z"}
+{"level":"info","message":"running custom initializer: middleware","timestamp":"2014-05-26T10:29:43.060Z"}
+{"level":"info","message":"running custom initializer: tcos","timestamp":"2014-05-26T10:29:43.060Z"}
+{"level":"notice","message":"running in development mode","timestamp":"2014-05-26T10:29:43.061Z"}
+{"level":"info","message":"environment: development","timestamp":"2014-05-26T10:29:43.061Z"}
+{"level":"notice","message":"pid: 14151","timestamp":"2014-05-26T10:29:43.062Z"}
+{"level":"info","message":"ensuring the existence of the chatRoom: defaultRoom","timestamp":"2014-05-26T10:29:43.064Z"}
+{"level":"notice","message":"starting server: web","timestamp":"2014-05-26T10:29:43.065Z"}
+{"level":"notice","message":"starting server: websocket","timestamp":"2014-05-26T10:29:43.065Z"}
+{"level":"notice","message":"webSockets bound to 0.0.0.0:8080 mounted at /faye","timestamp":"2014-05-26T10:29:43.066Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-26T10:29:44.065Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-26 12:29:43 ***","timestamp":"2014-05-26T10:29:44.065Z"}
+{"level":"notice","message":"actionhero restarted","timestamp":"2014-05-26T10:29:44.066Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-26T10:30:03.851Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-26T10:30:03.854Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-26T10:30:04.961Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-26 12:30:03 ***","timestamp":"2014-05-26T10:30:04.962Z"}
+{"to":"127.0.0.1","action":"album","params":"{\"tco_id\":\"tco14\",\"id\":\"1\",\"action\":\"album\",\"apiVersion\":1}","duration":1953,"error":"null","level":"info","message":"[ action @ web ]","timestamp":"2014-05-26T10:30:06.946Z"}
+{"level":"alert","message":"Shutting down open servers and stopping task processing","timestamp":"2014-05-26T10:30:06.958Z"}
+{"level":"notice","message":"stopping server: web","timestamp":"2014-05-26T10:30:06.961Z"}
+{"level":"notice","message":"stopping server: websocket","timestamp":"2014-05-26T10:30:06.961Z"}
+{"level":"alert","message":"The actionhero has been stopped","timestamp":"2014-05-26T10:30:07.467Z"}
+{"level":"notice","message":"*** starting actionhero ***","timestamp":"2014-05-26T10:30:07.492Z"}
+{"level":"warning","message":"running with fakeredis","timestamp":"2014-05-26T10:30:07.492Z"}
+{"level":"info","message":"running custom initializer: albums","timestamp":"2014-05-26T10:30:07.501Z"}
+{"level":"info","message":"running custom initializer: events","timestamp":"2014-05-26T10:30:07.501Z"}
+{"level":"info","message":"running custom initializer: middleware","timestamp":"2014-05-26T10:30:07.502Z"}
+{"level":"info","message":"running custom initializer: tcos","timestamp":"2014-05-26T10:30:07.503Z"}
+{"level":"notice","message":"running in development mode","timestamp":"2014-05-26T10:30:07.503Z"}
+{"level":"info","message":"environment: development","timestamp":"2014-05-26T10:30:07.503Z"}
+{"level":"notice","message":"pid: 14188","timestamp":"2014-05-26T10:30:07.504Z"}
+{"level":"info","message":"ensuring the existence of the chatRoom: defaultRoom","timestamp":"2014-05-26T10:30:07.506Z"}
+{"level":"notice","message":"starting server: web","timestamp":"2014-05-26T10:30:07.507Z"}
+{"level":"notice","message":"starting server: websocket","timestamp":"2014-05-26T10:30:07.507Z"}
+{"level":"notice","message":"webSockets bound to 0.0.0.0:8080 mounted at /faye","timestamp":"2014-05-26T10:30:07.508Z"}
+{"level":"notice","message":"server ID: 192.168.1.7","timestamp":"2014-05-26T10:30:08.507Z"}
+{"level":"notice","message":"*** Server Started @ 2014-05-26 12:30:07 ***","timestamp":"2014-05-26T10:30:08.508Z"}
+{"level":"notice","message":"actionhero restarted","timestamp":"2014-05-26T10:30:08.509Z"}
+{"to":"127.0.0.1","action":"tcosList","params":"{\"action\":\"tcosList\",\"apiVersion\":1}","duration":1617,"error":"null","level":"info","message":"[ action @ web ]","timestamp":"2014-05-26T10:30:10.139Z"}
