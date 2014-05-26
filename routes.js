@@ -46,6 +46,7 @@ exports.routes = {
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
     { path: '/tcos/:tco_id/favorite-albums', action: 'favoriteAlbums' },
     { path: '/tcos/:tco_id/favorite-attendees', action: 'favoriteAttendees' },
+    { path: '/tcos/:tco_id/favorite-events', action: 'favoriteEvents' },
     { path: '/tcos', action: 'tcosList' }
   ]
 
