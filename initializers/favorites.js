@@ -60,6 +60,21 @@ exports.favorites = function(api, next){
       executeSql('album', sql, tco_id, sort, next);
     },
 
+    attendees: function(tco_id, sort, next) {
+      var sql = "SELECT a.id, unique_id__c as tco_id, " +
+      	"a.handle__c as handle, a.name, a.type__c as type, " +
+      	"a.avatar__c as avatar, a.email__c as email, " +
+      	"a.country__c as country, a.quote__c as quote, " +
+      	"to_char(a.member_since__c, 'YYYY-MM-DD') as member_since, " +
+      	"a.current_challenges__c as current_challenges " +
+      	"FROM salesforce.tco_attendee__c as a " +
+      	"INNER JOIN salesforce.tco__c ON tco__c.sfid = a.tco__c " +
+      	"INNER JOIN salesforce.tco_favorite__c " +
+      	"ON fav_attendee__c = a.sfid " +
+      	"WHERE unique_id__c = $1";
+
+      executeSql('attendee', sql, tco_id, sort, next);
+    }
   };
 
   next();
