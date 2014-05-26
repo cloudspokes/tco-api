@@ -15,7 +15,7 @@ exports.tcos = function(api, next){
          "from salesforce.TCO__c order by start_date__c desc";
         client.query(sql, function(err, rs) {
           if (err) next(err);
-          if (!err) next(forcifier.deforceJson(rs['rows']));         
+          if (!err) next(forcifier.deforceJson(rs['rows']));
         })
       })
     }
