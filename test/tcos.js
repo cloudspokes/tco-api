@@ -14,6 +14,7 @@ describe('tcos', function(){
   });
 
   it("/tcos should return an array", function(done){
+    this.timeout(5000);
     request.get(setup.testUrl + "/tcos", function(err, res, body){
       body = JSON.parse(body);
       res.statusCode.should.equal(200);
@@ -21,6 +22,6 @@ describe('tcos', function(){
       body.response.should.be.an.instanceOf(Array)
       done();
     });
-  });  
+  });
 
 });
