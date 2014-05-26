@@ -41,4 +41,31 @@ describe('multimedia', function(){
     });
   });
 
+  /*
+   * Tests list all multimedia objects:
+   *
+   *    GET /tcos/{tco_id}/albums/{album_id}/multimedia
+   */
+  it("/tcos/{tco_id}/albums/{album_id}/multimedia should return" +
+  		" all multimedia", function(done) {
+    this.timeout(5000);
+    attributes = [ 'id', 'tco_id', 'album_id', 'name', 'url' ];
+    tco_id = 'tco14';
+    album_id = 1;
+    testUrl = setup.testUrl + "/tcos/" + tco_id +
+      "/albums/" + album_id + "/multimedia";
+    request.get(testUrl, function (err, res, body) {
+      body = JSON.parse(body);
+      console.log(body);
+      res.statusCode.should.equal(200);
+      body.count.should.equal(2);
+      body.response.should.be.an.instanceof(Array);
+      for (var i = 0; i < body.count; ++i) {
+        body.response[i].tco_id.should.equal(tco_id);
+        body.response[i].should.to.have.keys(attributes);
+      }
+      done();
+    });
+  });
+
 });

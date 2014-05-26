@@ -48,6 +48,10 @@ exports.routes = {
       path: '/tcos/:tco_id/albums/:album_id/multimedia/:id',
       action: 'multimedia'
     },
+    {
+      path: '/tcos/:tco_id/albums/:album_id/multimedia',
+      action: 'multimediaList'
+    },
     { path: '/tcos', action: 'tcosList' }
   ]
 
