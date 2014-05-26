@@ -36,4 +36,27 @@ describe('albums', function(){
     );
   });
 
+  /*
+   * Tests List Albums: GET /tcos/{tco_id}/albums
+   */
+  it("/tcos/{tco_id}/albums should return a list of albums.", function(done) {
+    this.timeout(5000);
+    attributes = [ 'id', 'tco_id', 'name', 'cover' ];
+    tco_id = 'tco14';
+    request.get(setup.testUrl + "/tcos/" + tco_id + "/albums",
+      function (err, res, body) {
+        body = JSON.parse(body);
+        console.log(body);
+        res.statusCode.should.equal(200);
+        body.count.should.equal(3);
+        body.response.should.be.an.instanceof(Array);
+        for (var i = 0; i < body.count; ++i) {
+          body.response[i].tco_id.should.equal(tco_id);
+          body.response[i].should.have.keys(attributes);
+        }
+        done();
+      }
+    );
+  });
+
 });
