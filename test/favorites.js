@@ -1,5 +1,4 @@
 var request = require("request");
-var pg = require('pg').native;
 var should = require('chai').should();
 var setup = require("./_setup.js")._setup;
 
@@ -19,7 +18,7 @@ describe('favorites', function(){
    *    GET /tcos/{tco_id}/favorite-albums?{sort}
    */
   it("/tcos/{tco_id}/favorite-albums?{sort} should return" +
-      " a list of favorite albums sorted ascendingly.", function(done) {
+      " a list of favorite albums.", function(done) {
     this.timeout(5000);
     attributes = [ 'likes', 'album' ];
     album_attributes = [ 'id', 'name', 'cover', 'tco_id' ];
@@ -31,14 +30,10 @@ describe('favorites', function(){
       body.count.should.equal(2);
       body.response.should.be.an.instanceof(Array);
       body.response[0].should.have.keys(attributes);
-      body.response[0].likes.should.equal(1);
-
       body.response[0].album.should.have.keys(album_attributes);
       body.response[0].album.tco_id.should.equal(tco_id);
 
       body.response[1].should.have.keys(attributes);
-      body.response[1].likes.should.equal(2);
-
       body.response[1].album.should.have.keys(album_attributes);
       body.response[1].album.tco_id.should.equal(tco_id);
       done();

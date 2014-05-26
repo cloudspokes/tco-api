@@ -12,7 +12,7 @@ exports.favorites = function(api, next){
     return compareByLikesAsc(a, b) * -1;
   };
 
-  var executeSql = function(type, sql, tco_id, desc, next) {
+  var executeSql = function(type, sql, tco_id, sort, next) {
     var client = new pg.Client(api.config.general.pg.connString);
     client.connect(function(err) {
       client.query(sql, [ tco_id ], function(err, rs) {
@@ -35,9 +35,9 @@ exports.favorites = function(api, next){
           }
         }
 
-        if (desc)
+        if (sort === 'desc')
           result.sort(compareByLikesDesc);
-        else
+        else if(sort === 'asc')
           result.sort(compareByLikesAsc);
 
         next(result);
@@ -47,7 +47,7 @@ exports.favorites = function(api, next){
 
   api.favorites = {
 
-    albums: function(tco_id, desc, next) {
+    albums: function(tco_id, sort, next) {
       var sql = "SELECT album.id, album.name, " +
         "album.cover__c as cover, unique_id__c as tco_id " +
         "FROM salesforce.tco_favorite__c " +
@@ -57,7 +57,7 @@ exports.favorites = function(api, next){
         "ON tco__c.sfid = album.tco__c " +
         "WHERE unique_id__c = $1";
 
-      executeSql('album', sql, tco_id, desc, next);
+      executeSql('album', sql, tco_id, sort, next);
     },
 
   };

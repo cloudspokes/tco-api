@@ -12,7 +12,7 @@ exports.favoriteAlbums = {
 
   run: function(api, connection, next){
     api.favorites.albums(connection.params.tco_id,
-      connection.params.sort === 'desc',
+      connection.params.sort,
       function(data){
         connection.response.response = data;
         connection.response.count = data.length;
