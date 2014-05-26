@@ -24,7 +24,6 @@ describe('albums', function(){
     request.get(setup.testUrl + "/tcos/" + tco_id + "/albums/" + id,
       function (err, res, body) {
         body = JSON.parse(body);
-        console.log(body);
         res.statusCode.should.equal(200);
         body.count.should.equal(1);
         body.response.should.be.an.instanceof(Array);
@@ -46,7 +45,6 @@ describe('albums', function(){
     request.get(setup.testUrl + "/tcos/" + tco_id + "/albums",
       function (err, res, body) {
         body = JSON.parse(body);
-        console.log(body);
         res.statusCode.should.equal(200);
         body.count.should.equal(3);
         body.response.should.be.an.instanceof(Array);
@@ -54,6 +52,44 @@ describe('albums', function(){
           body.response[i].tco_id.should.equal(tco_id);
           body.response[i].should.have.keys(attributes);
         }
+        done();
+      }
+    );
+  });
+
+  /*
+   * Tests Album liked checker: GET /tcos/{tco_id}/albums/{id}/like
+   *
+   * Expects the album to be liked.
+   */
+  it("/tcos/{tco_id}/albums/{id}/like should return if album liked.", function(done) {
+    this.timeout(5000);
+    request.get(setup.testUrl + "/tcos/tco14/albums/1/like",
+      function (err, res, body) {
+        body = JSON.parse(body);
+        res.statusCode.should.equal(200);
+        should.equal(body.count, null);
+        body.response.should.be.an.instanceof(Object);
+        body.response.liked.should.be.true;
+        done();
+      }
+    );
+  });
+
+  /*
+   * Tests Album liked checker: GET /tcos/{tco_id}/albums/{id}/like
+   *
+   * Expects the album to not be liked.
+   */
+  it("/tcos/{tco_id}/albums/{id}/like should return if album liked.", function(done) {
+    this.timeout(5000);
+    request.get(setup.testUrl + "/tcos/tco14/albums/2/like",
+      function (err, res, body) {
+        body = JSON.parse(body);
+        res.statusCode.should.equal(200);
+        should.equal(body.count, null);
+        body.response.should.be.an.instanceof(Object);
+        body.response.liked.should.be.false;
         done();
       }
     );
