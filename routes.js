@@ -44,6 +44,7 @@ exports.routes = {
 
   get: [
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
+    { path: '/tcos/:tco_id/sponsors', action: 'sponsorsList' },
     { path: '/tcos/:tco_id/sponsor/:id', action: 'sponsor' },
     { path: '/tcos', action: 'tcosList' }
   ]
