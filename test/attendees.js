@@ -80,4 +80,18 @@ describe('attendees', function(){
     });
   });
 
+  it("/tcos/#{tco_id}/#{attendee_id}/unread-messages-count should return a count of unread messages", function(done){
+    this.timeout(5000);
+    tco_id = 'tco14';
+    attendee_id = '2';
+    request.get(setup.testUrl + "/tcos/"+tco_id+"/"+attendee_id+"/unread-messages-count", function(err, res, body){
+      body = JSON.parse(body);
+      res.statusCode.should.equal(200);
+      body.count.should.equal(1);
+      body.response.should.be.an.instanceOf(Array);
+      body.response[0].count.should.equal("1");
+      done();
+    });
+  });
+
 });
