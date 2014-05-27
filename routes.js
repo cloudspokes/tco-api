@@ -52,7 +52,9 @@ exports.routes = {
     { path: '/tcos/:tco_id/albums/:id/like', action: 'albumLiked' },
     { path: '/tcos/:tco_id/albums/:id', action: 'album' },
     { path: '/tcos/:tco_id/albums', action: 'albumsList' },
-    { path: '/tcos/:id', action: 'tco' },
+    { path: '/tcos/:tco_id/news/:id', action: 'news' },
+    { path: '/tcos/:tco_id/news', action: 'newsList' },
+    { path: '/tcos/:id', action: 'tco' },    
     { path: '/tcos', action: 'tcosList' }
   ],
 
