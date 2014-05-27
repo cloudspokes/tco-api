@@ -54,4 +54,20 @@ describe('events', function(){
     });
   });  
 
+  it("/tcos/#{tco_id}/events#{id}/attendees should return array of attendees with only valid attributes", function(done){
+    this.timeout(5000);
+    tco_id = "tco14";
+    id = 1;
+    attributes = ["id","tco_id","handle","name","avatar","type","email","country","quote","member_since","current_challenges"];
+    request.get(setup.testUrl + "/tcos/"+tco_id+"/events/"+id+"/attendees", function(err, res, body){
+      body = JSON.parse(body);
+      res.statusCode.should.equal(200);
+      body.count.should.equal(1);
+      body.response.should.be.an.instanceOf(Array);
+      body.response[0]["tco_id"].should.equal(tco_id);
+      body.response[0].should.have.keys(attributes);
+      done();
+    });
+  });
+
 });

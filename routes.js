@@ -43,14 +43,21 @@ example:
 exports.routes = {
 
   get: [
+    { path: '/tcos/:tco_id/events/:id/attendees', action: 'eventAttendees' },
     { path: '/tcos/:tco_id/events/:id', action: 'event' },
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
+    { path: '/tcos/:tco_id/messages', action: 'messagesList' },
+    { path: '/tcos/:tco_id/attendees/:id', action: 'attendee' },
     { path: '/tcos/:tco_id/attendees', action: 'attendeesList' },
     { path: '/tcos/:tco_id/albums/:id/like', action: 'albumLiked' },
     { path: '/tcos/:tco_id/albums/:id', action: 'album' },
     { path: '/tcos/:tco_id/albums', action: 'albumsList' },
     { path: '/tcos/:id', action: 'tco' },
     { path: '/tcos', action: 'tcosList' }
+  ],
+
+  delete: [
+    { path: '/tcos/:tco_id/messages/:id', action: 'deleteMessage' }
   ]
 
 };

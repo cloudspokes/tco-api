@@ -1,17 +1,17 @@
-exports.attendeesList = {
-  name:                   'attendeesList',
-  description:            'Returns attendees list. Method: GET',
+exports.messagesList = {
+  name:                   'messagesList',
+  description:            'Returns messages list. Method: GET',
   outputExample:          {},
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
   inputs: {
     required: ['tco_id'],
-    optional: ['type','handle'],
+    optional: ['from','to'],
   },
 
   run: function(api, connection, next){
-    api.attendees.list(connection.params,function(data){
+    api.messages.list(connection.params,function(data){
       connection.response.response = data;
       connection.response.count = data.length;
       next(connection, true);
@@ -19,20 +19,20 @@ exports.attendeesList = {
   }
 };
 
-exports.attendee = {
-  name:                   'attendee',
-  description:            'Returns attendee participating in tco. Method: GET',
+exports.deleteMessage = {
+  name:                   'deleteMessage',
+  description:            'Deletes a message object. Method: DELETE',
   outputExample:          {},
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
   inputs: {
     required: ['tco_id','id'],
-    optional: [],
+    optional: []
   },
 
   run: function(api, connection, next){
-    api.attendees.get(connection.params,function(data){
+    api.messages.delete(connection.params,function(data){
       connection.response.response = data;
       connection.response.count = data.length;
       next(connection, true);
