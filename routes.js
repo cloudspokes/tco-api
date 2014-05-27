@@ -1,5 +1,5 @@
 /* ---------------------
-routes.js 
+routes.js
 
 For web clients (http and https) you can define an optional RESTful mapping to help route requests to actions.
 If the client doesn't specify and action in a param, and the base route isn't a named action, the action will attempt to be discerned from this routes.js file.
@@ -46,6 +46,9 @@ exports.routes = {
     { path: '/tcos/:tco_id/events/:id', action: 'event' },
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
     { path: '/tcos/:tco_id/attendees', action: 'attendeesList' },
+    { path: '/tcos/:tco_id/albums/:id/like', action: 'albumLiked' },
+    { path: '/tcos/:tco_id/albums/:id', action: 'album' },
+    { path: '/tcos/:tco_id/albums', action: 'albumsList' },
     { path: '/tcos/:id', action: 'tco' },
     { path: '/tcos', action: 'tcosList' }
   ]
