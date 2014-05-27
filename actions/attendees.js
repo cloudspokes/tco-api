@@ -7,7 +7,7 @@ exports.attendeesList = {
   toDocument:             true,
   inputs: {
     required: ['tco_id'],
-    optional: ['type'],
+    optional: ['type','handle'],
   },
 
   run: function(api, connection, next){
