@@ -50,6 +50,14 @@ exports.routes = {
     { path: '/tcos/:tco_id/messages', action: 'messagesList' },
     { path: '/tcos/:tco_id/attendees/:id', action: 'attendee' },
     { path: '/tcos/:tco_id/attendees', action: 'attendeesList' },
+    {
+      path: '/tcos/:tco_id/albums/:album_id/multimedia/:id',
+      action: 'multimedia'
+    },
+    {
+      path: '/tcos/:tco_id/albums/:album_id/multimedia',
+      action: 'multimediaList'
+    },        
     { path: '/tcos/:tco_id/albums/:id/like', action: 'albumLiked' },
     { path: '/tcos/:tco_id/albums/:id', action: 'album' },
     { path: '/tcos/:tco_id/albums', action: 'albumsList' },
