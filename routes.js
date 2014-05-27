@@ -45,14 +45,11 @@ exports.routes = {
   get: [
     { path: '/tcos/:tco_id/events/:id', action: 'event' },
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
-<<<<<<< HEAD
     { path: '/tcos/:tco_id/attendees', action: 'attendeesList' },
-    { path: '/tcos/:id', action: 'tco' },
-=======
     { path: '/tcos/:tco_id/albums/:id/like', action: 'albumLiked' },
     { path: '/tcos/:tco_id/albums/:id', action: 'album' },
     { path: '/tcos/:tco_id/albums', action: 'albumsList' },
->>>>>>> a1aa3e089706ad678d97186304d70a532bf6f392
+    { path: '/tcos/:id', action: 'tco' },
     { path: '/tcos', action: 'tcosList' }
   ]
 
