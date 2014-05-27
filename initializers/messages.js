@@ -28,7 +28,32 @@ exports.messages = function(api, next){
           if (!err) next(rs['rows']);         
         })
       })
-    }
+    },
+
+    delete: function(params,next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "delete from salesforce.tco_private_message__c as messages "+
+            "where tco__c = (SELECT sfid from salesforce.TCO__c where unique_id__c = $1) AND id = $2";
+        client.query(sql,[params.tco_id,params.id], function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs);         
+        })
+      })
+    },
+
+    // Sample test message 
+    addTestMessage: function(params,next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "insert into salesforce.tco_private_message__c (id,tco__c,from_attendee__c,to_attendee__c) values ( '" +
+          +params.id +"','a1SU00000016eF7MAI','a1UU0000001VJyaMAG','a1UU0000001VMyyMAG');";
+        client.query(sql, function(err, rs) {
+          if (err) next(true);
+          if (!err) next(false);         
+        })
+      })
+    }    
   };
 
   next();
