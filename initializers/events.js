@@ -15,9 +15,26 @@ exports.events = function(api, next){
          "where tco.unique_id__c = '"+params.tco_id+"'" ; // need appriopriate order by
         client.query(sql, function(err, rs) {
           if (err) next(err);
-          if (!err) next(rs['rows']);         
+          if (!err) next(rs['rows']);
         })
       })
+    },
+
+    isLiked: function(tco_id, id, next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "SELECT COUNT(*) as likes_count " +
+          "FROM salesforce.tco_favorite__c as favorite " +
+          "INNER JOIN salesforce.tco_event__c as event " +
+          "ON favorite.fav_event__c = event.sfid " +
+          "INNER JOIN salesforce.tco__c as tco " +
+          "ON tco.sfid = event.tco__c " +
+          "WHERE unique_id__c = $1 AND event.id = $2";
+        client.query(sql, [tco_id, id], function(err, rs) {
+          if (err) next(err);
+          if (!err) next({ liked: rs['rows'][0].likes_count > 0 });
+        });
+      });
     }
 
   };

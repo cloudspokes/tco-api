@@ -43,6 +43,7 @@ example:
 exports.routes = {
 
   get: [
+    { path: '/tcos/:tco_id/events/:id/like', action: 'eventLiked' },
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
     { path: '/tcos', action: 'tcosList' }
   ]
