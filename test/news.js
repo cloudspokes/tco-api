@@ -123,7 +123,7 @@ describe('tcos', function(){
     attributes = [ 'id', 'tco_id', 'name', 'source_url',
                    'source', 'creation_date', 'content' ];
     var tco_id = 'tco14';
-    var date = '2014-03-30T19:00:00.000Z';
+    var date = '2014-06-30T19:00:00.000Z';
     request.get(setup.testUrl + "/tcos/" + tco_id +
       "/news?start_time=" + date,
       function (err, res, body) {
@@ -148,13 +148,13 @@ describe('tcos', function(){
     attributes = [ 'id', 'tco_id', 'name', 'source_url',
                    'source', 'creation_date', 'content' ];
     var tco_id = 'tco14';
-    var date = '2014-04-01T19:00:00.000Z';
+    var date = '2014-01-01T19:00:00.000Z';
     request.get(setup.testUrl + "/tcos/" + tco_id +
       "/news?start_time=" + date,
       function (err, res, body) {
         body = JSON.parse(body);
         res.statusCode.should.equal(200);
-        body.count.should.equal(1);
+        body.count.should.be.at.least(1);
         body.response.should.be.an.instanceof(Array);
         body.response[0].should.to.have.keys(attributes);
         body.response[0].tco_id.should.equal(tco_id);
@@ -175,14 +175,14 @@ describe('tcos', function(){
     attributes = [ 'id', 'tco_id', 'name', 'source_url',
                    'source', 'creation_date', 'content' ];
     var tco_id = 'tco14';
-    var date = '2014-04-01T19:00:00.000Z';
+    var date = '2014-01-01T19:00:00.000Z';
     var source = 'Blog';
     request.get(setup.testUrl + "/tcos/" + tco_id +
       "/news?start_time=" + date + "&source=" + source,
       function (err, res, body) {
         body = JSON.parse(body);
         res.statusCode.should.equal(200);
-        body.count.should.equal(1);
+        body.count.should.be.at.least(1);
         body.response.should.be.an.instanceof(Array);
         body.response[0].should.to.have.keys(attributes);
         body.response[0].tco_id.should.equal(tco_id);

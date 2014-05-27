@@ -40,7 +40,7 @@ exports.news = function(api, next){
         }
 
         if (start_time) {
-          sql += " AND news.createddate < " + params_count.pop();
+          sql += " AND news.createddate > " + params_count.pop();
           params.push(start_time);
         }
 
