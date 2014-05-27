@@ -18,7 +18,8 @@ exports.attendees = function(api, next){
         " on salesforce.tco_attendee__c.tco__c = salesforce.tco__c.sfid"+
         " where salesforce.tco__c.unique_id__c = '"+params.tco_id+"' ";
 
-        if(params.type) sql += " AND type__c='"+ params.type +"'";
+        if(params.type) sql += " AND type__c='"+ params.type +"' ";
+        if(params.handle) sql += " AND handle__c='" + params.handle + "'";
         client.query(sql, function(err, rs) {
           if (err) next(err);
           if (!err) next(rs['rows']);         

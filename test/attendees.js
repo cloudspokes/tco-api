@@ -63,4 +63,21 @@ describe('attendees', function(){
     });
   });
 
+  it("/tcos/#{tco_id}/attendees?{handle} should return an array of attendees with type", function(done){
+    this.timeout(5000);
+    attributes = ["id","tco_id","handle","name","avatar","type","email","country","quote","member_since","current_challenges"];
+    tco_id = 'tco14';
+    handle = 'jeffdonthemic';
+    request.get(setup.testUrl + "/tcos/"+tco_id+"/attendees?handle="+handle, function(err, res, body){
+      body = JSON.parse(body);
+      res.statusCode.should.equal(200);
+      body.count.should.equal(1);
+      body.response.should.be.an.instanceOf(Array);
+      body.response[0].tco_id.should.equal(tco_id);
+      body.response[0].handle.should.equal(handle);
+      body.response[0].should.have.keys(attributes);
+      done();
+    });
+  });
+
 });
