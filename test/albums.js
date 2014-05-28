@@ -101,10 +101,13 @@ describe('albums', function(){
    * Tests liking an album: POST /tcos/{tco_id}/albums/{id}/like
    */
   it("/tcos/{tco_id}/albums/{id}/like should like an album.", function(done) {
-    this.timeout(25000);
-    postLikeAsPromised()
+    this.timeout(10000);
+    checkLikedAsPromised(false)
+      .then(function(){
+        return postLikeAsPromised();
+      })
       .then(function() {
-        return checkLikedAsPromised();
+        return checkLikedAsPromised(true);
       })
       .then(function() {
         var client = new pg.Client(setup.api.config.general.pg.connString);
@@ -144,7 +147,7 @@ describe('albums', function(){
     return deferred.promise;
   }
 
-  function checkLikedAsPromised(albumId) {
+  function checkLikedAsPromised(liked) {
     var deferred = Q.defer();
     request.get(setup.testUrl + "/tcos/tco14/albums/2/like",
       function (err, res, body) {
@@ -152,7 +155,8 @@ describe('albums', function(){
         res.statusCode.should.equal(200);
         should.equal(body.count, null);
         body.response.should.be.an.instanceof(Object);
-        body.response.liked.should.be.true;
+        if (liked) body.response.liked.should.be.true;
+        else body.response.liked.should.be.false;
         deferred.resolve();
       }
     );
