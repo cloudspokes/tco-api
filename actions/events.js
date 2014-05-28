@@ -80,7 +80,7 @@ exports.eventLiked = {
 
 exports.likeEvent = {
   name:                   'likeEvent',
-  description:            'Returns an event. Method: POST',
+  description:            'Likes an event. Method: POST',
   outputExample:          {},
   matchExtensionMimeType: false,
   version:                1.0,
