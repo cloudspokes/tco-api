@@ -182,4 +182,27 @@ describe('messages', function(){
     );
   });
 
+  it("/tcos/{tco_id}/messages should post a single message.", function(done){
+    this.timeout(5000);
+    var tco_id = "tco14";
+    var json_post = {
+      tco_id: "tco14",
+      subject: "testingmessage",
+      content: "testingcontent",
+      from: 2,
+      to: 1,
+      attachment: "https://www.cs.purdue.edu/news/images/TopCoder.GIF"
+    };
+    var json_string = JSON.stringify(json_post);
+    var req = request.post(setup.testUrl + "/tcos/"+tco_id+"/messages", {headers: {'content-type' : 'application/json'},
+      body: json_string},function(err, res, body){
+        body = JSON.parse(body);
+        res.statusCode.should.equal(200);
+        body.response.rowCount.should.equal(1);
+        done();
+      }); 
+  });
+
+
+
 });

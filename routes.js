@@ -76,6 +76,10 @@ exports.routes = {
     { path: '/tcos', action: 'tcosList' }
   ],
 
+  post: [
+    { path: '/tcos/:tco_id/messages', action: 'postMessage'}
+  ],
+
   delete: [
     { path: '/tcos/:tco_id/messages/:id', action: 'deleteMessage' }
   ]

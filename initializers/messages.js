@@ -78,7 +78,25 @@ exports.messages = function(api, next){
           if (!err) next(rs['rows']);
         });
       });
+    },
+
+    post: function(params, next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "insert into salesforce.tco_private_message__c " +  
+          "(tco__c,from_attendee__c,to_attendee__c, subject__c,content__c,attachment__c) values " +
+           "((SELECT sfid from salesforce.tco__c where unique_id__c = '"+ params.tco_id +"')" + ",(SELECT sfid from salesforce.tco_attendee__c where id = '" + params.from +"')"+
+          ",(SELECT sfid from salesforce.tco_attendee__c where id = '" + params.to + "')"+
+          ",'" + params.subject + "','"+params.content+"','" + params.attachment + "')";
+
+        client.query(sql, function(err, rs) {
+          console.log("RESSS" + rs.inspect);
+          if (err) next(true);
+          if (!err) next(rs);
+        });
+      });
     }
+
   };
 
   next();
