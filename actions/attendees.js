@@ -61,3 +61,24 @@ exports.attendeeLiked = {
     });
   }
 };
+
+exports.attendeeUnreadMessages = {
+  name:                   'attendeeUnreadMessages',
+  description:            'Returns attendee Unread Messages count. Method: GET',
+  outputExample:          {},
+  matchExtensionMimeType: false,
+  version:                1.0,
+  toDocument:             true,  
+  inputs: {
+    required: ['tco_id','attendee_id'],
+    optional: [],
+  },
+
+  run: function(api, connection, next){
+    api.attendees.getUnreadMessagesCount(connection.params,function(data){
+      connection.response.response = data;
+      connection.response.count = data.length;
+      next(connection, true);
+    });
+  }
+};
