@@ -36,7 +36,7 @@ exports.updateSettings = {
   },
 
   run: function(api, connection, next){
-    api.settings.post(connection.params, function(data) {
+    api.settings.put(connection.params, function(data) {
       connection.response.response = data;
       connection.response.count = data.length;
       next(connection, true);

@@ -43,14 +43,41 @@ example:
 exports.routes = {
 
   get: [
+    { path: '/my-profile/:id/settings', action: 'getSettings' },
+    { path: '/tcos/:tco_id/events/:id/attendees', action: 'eventAttendees' },
+    { path: '/tcos/:tco_id/events/:id/like', action: 'eventLiked' },
+    { path: '/tcos/:tco_id/events/:id', action: 'event' },
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
-    { path: '/tcos', action: 'tcosList' },
-
-    { path: '/my-profile/settings/:id', action: 'getSettings' }
+    { path: '/tcos/:tco_id/messages/:id', action: 'message' },
+    { path: '/tcos/:tco_id/messages', action: 'messagesList' },
+    { path: '/tcos/:tco_id/attendees/:id/like', action: 'attendeeLiked' },
+    { path: '/tcos/:tco_id/attendees/:id', action: 'attendee' },
+    { path: '/tcos/:tco_id/attendees', action: 'attendeesList' },
+    {
+      path: '/tcos/:tco_id/albums/:album_id/multimedia/:id',
+      action: 'multimedia'
+    },
+    {
+      path: '/tcos/:tco_id/albums/:album_id/multimedia',
+      action: 'multimediaList'
+    },
+    { path: '/tcos/:tco_id/albums/:id/like', action: 'albumLiked' },
+    { path: '/tcos/:tco_id/albums/:id', action: 'album' },
+    { path: '/tcos/:tco_id/albums', action: 'albumsList' },
+    { path: '/tcos/:tco_id/news/:id', action: 'news' },
+    { path: '/tcos/:tco_id/news', action: 'newsList' },
+    { path: '/tcos/:tco_id/sponsors/:id', action: 'sponsor' },
+    { path: '/tcos/:tco_id/sponsors', action: 'sponsorsList' },
+    { path: '/tcos/:tco_id/:attendee_id/unread-messages-count', action: 'attendeeUnreadMessages' },
+    { path: '/tcos/:tco_id/favorite-albums', action: 'favoriteAlbums' },
+    { path: '/tcos/:tco_id/favorite-attendees', action: 'favoriteAttendees' },
+    { path: '/tcos/:tco_id/favorite-events', action: 'favoriteEvents' },
+    { path: '/tcos/:id', action: 'tco' },
+    { path: '/tcos', action: 'tcosList' }
   ],
 
-  post: [
-    { path: '/my-profile/settings/:id', action: 'updateSettings' }
+  put: [
+    { path: '/my-profile/:id/settings', action: 'updateSettings' }
   ]
 
 };

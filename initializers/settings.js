@@ -6,7 +6,7 @@ var MY_SETTINGS_GET= "SELECT attendee.event_push_notifications__c, allow_private
         " FROM salesforce.tco_attendee__c as attendee" +
         " WHERE attendee.id = $1";
 
-var MY_SETTINGS_POST= "UPDATE salesforce.tco_attendee__c as attendee SET event_push_notifications__c = $2," +
+var MY_SETTINGS_PUT= "UPDATE salesforce.tco_attendee__c as attendee SET event_push_notifications__c = $2," +
         " allow_private_messages__c = $3" +
         " WHERE attendee.id = $1";
 
@@ -23,11 +23,11 @@ exports.settings = function(api, next){
         });
     },
 
-    post: function(params, next) {
+    put: function(params, next) {
       var client = new pg.Client(api.config.general.pg.connString);
       return api.helper.createDeferedConnection(client)
         .then(function() {
-          return api.helper.createDeferedQuery(client, MY_SETTINGS_POST,  [params.id,
+          return api.helper.createDeferedQuery(client, MY_SETTINGS_PUT,  [params.id,
                                                                 params.eventPushNotifications === 'true' ? 't' : 'f',
                                                                 params.allowPrivateMessages === 'true' ? 't' : 'f']);
         })

@@ -17,7 +17,7 @@ describe('My Profiles settings. GET: ', function(){
     this.timeout(5000);
     var attributes = ['event_push_notifications', 'allow_private_messages'];
 
-    request.get(setup.testUrl + "/my-profile/settings/2", function(err, res, body){
+    request.get(setup.testUrl + "/my-profile/2/settings", function(err, res, body){
       body = JSON.parse(body);
       res.statusCode.should.equal(200);
       body.count.should.equal(1);
@@ -28,7 +28,7 @@ describe('My Profiles settings. GET: ', function(){
   });
 });
 
-describe('My Profiles settings. POST: ', function(){
+describe('My Profiles settings. PUT: ', function(){
 
   before(function(done){
     setup.init(done);
@@ -43,7 +43,7 @@ describe('My Profiles settings. POST: ', function(){
     this.timeout(5000);
     var attributes = ['event_push_notifications', 'allow_private_messages'];
 
-    request.post(setup.testUrl + "/my-profile/settings/2",
+    request.put(setup.testUrl + "/my-profile/2/settings",
            {form: {eventPushNotifications:'true',
                    allowPrivateMessages: 'false'}}, function(err, res, body){
       body = JSON.parse(body);
@@ -61,7 +61,7 @@ describe('My Profiles settings. POST: ', function(){
     this.timeout(5000);
     var attributes = ['event_push_notifications', 'allow_private_messages'];
 
-    request.post(setup.testUrl + "/my-profile/settings/2",
+    request.post(setup.testUrl + "/my-profile/2/settings",
            {form: {eventPushNotifications:'false',
                    allowPrivateMessages: 'true'}}, function(err, res, body){
       body = JSON.parse(body);
@@ -79,7 +79,7 @@ describe('My Profiles settings. POST: ', function(){
     this.timeout(5000);
     var attributes = ['event_push_notifications', 'allow_private_messages'];
 
-    request.post(setup.testUrl + "/my-profile/settings/2",
+    request.post(setup.testUrl + "/my-profile/2/settings",
            {form: {allowPrivateMessages: 'false'}}, function(err, res, body){
       body = JSON.parse(body);
       res.statusCode.should.equal(200);
@@ -92,7 +92,7 @@ describe('My Profiles settings. POST: ', function(){
     this.timeout(5000);
     var attributes = ['event_push_notifications', 'allow_private_messages'];
 
-    request.post(setup.testUrl + "/my-profile/settings/2",
+    request.post(setup.testUrl + "/my-profile/2/settings",
            {form: {eventPushNotifications:'false'}}, function(err, res, body){
       body = JSON.parse(body);
       res.statusCode.should.equal(200);
