@@ -145,18 +145,20 @@ current_challenges__c       | 1
 ### TCO Event
 
 ```bash
-lastmodifieddate | 2014-03-31 18:38:08
-type__c          | Session
-end_time__c      | 2014-03-31 19:00:00
-details__c       | Come join us for the opening ceremony with drinks and appetizers.
-name             | Welcome Ceremony
-tco__c           | a1SU00000016eF7MAI
-isdeleted        | f
-id               | 1
-createddate      | 2014-03-31 18:38:08
-start_time__c    | 2014-03-31 18:00:00
-sfid             | a1VU0000000VLifMAG
-location__c      | Grand Ballroom
+end_time__c       | 2014-05-21 19:00:00
+sfid              | a1VU0000000VfQmMAK
+details__c        | Don't miss the kickoff of the marathon match!
+start_time__c     | 2014-05-21 15:30:00
+type__c           | Competition
+createddate       | 2014-05-21 15:50:38
+tco__c            | a1SU00000016eF7MAI
+lastmodifieddate  | 2014-05-28 18:15:57
+location__c       | Arena
+id                | 1
+name              | Marathon Match
+contest_purse__c  | 100
+contest_type__c   | Marathon Match
+contest_points__c | 500
 ```
 
 ### TCO Event Notification
