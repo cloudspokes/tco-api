@@ -50,6 +50,26 @@ exports.attendees = function(api, next){
       })
     },
 
+    getUnreadMessagesCount: function(params,next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "select COUNT(*) from salesforce.tco_private_message__c "+
+        "inner join salesforce.tco_attendee__c"+
+        " on salesforce.tco_attendee__c.sfid = salesforce.tco_private_message__c.to_attendee__c"+
+        " inner join salesforce.tco__c"+
+        " on salesforce.tco__c.sfid = salesforce.tco_private_message__c.tco__c"+
+        " where salesforce.tco_attendee__c.id = '"+params.attendee_id+"' "+
+        " AND salesforce.tco__c.unique_id__c = '"+params.tco_id+"' "+
+        " AND (salesforce.tco_private_message__c.status__c != 'read' "+
+        " OR salesforce.tco_private_message__c.status__c IS NULL)";
+
+        client.query(sql, function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs['rows']);         
+        })
+      })
+    },
+
     isLiked: function(tco_id, id, next) {
       var client = new pg.Client(api.config.general.pg.connString);
       client.connect(function(err) {
