@@ -81,6 +81,10 @@ exports.routes = {
     { path: '/tcos/:tco_id/messages', action: 'postMessage'}
   ],
 
+  put: [
+    { path: '/my-profile/:id', action: 'updateProfile' }
+  ],
+
   delete: [
     { path: '/tcos/:tco_id/messages/:id', action: 'deleteMessage' }
   ]
