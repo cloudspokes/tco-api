@@ -46,7 +46,11 @@ exports.routes = {
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
     { path: '/tcos', action: 'tcosList' },
 
-    { path: '/my-profile/settings/:id', action: 'settings' }
+    { path: '/my-profile/settings/:id', action: 'getSettings' }
+  ],
+
+  post: [
+    { path: '/my-profile/settings/:id', action: 'updateSettings' }
   ]
 
 };
