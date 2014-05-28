@@ -43,6 +43,7 @@ example:
 exports.routes = {
 
   get: [
+    { path: '/my-profile/settings/:id', action: 'settings' },
     { path: '/tcos/:tco_id/events/:id/attendees', action: 'eventAttendees' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'eventLiked' },    
     { path: '/tcos/:tco_id/events/:id', action: 'event' },
