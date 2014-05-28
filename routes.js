@@ -68,7 +68,10 @@ exports.routes = {
     { path: '/tcos/:tco_id/sponsors/:id', action: 'sponsor' },    
     { path: '/tcos/:tco_id/sponsors', action: 'sponsorsList' },
     { path: '/tcos/:tco_id/:attendee_id/unread-messages-count', action: 'attendeeUnreadMessages' },
-    { path: '/tcos/:id', action: 'tco' },
+    { path: '/tcos/:tco_id/favorite-albums', action: 'favoriteAlbums' },
+    { path: '/tcos/:tco_id/favorite-attendees', action: 'favoriteAttendees' },
+    { path: '/tcos/:tco_id/favorite-events', action: 'favoriteEvents' },
+    { path: '/tcos/:id', action: 'tco' },    
     { path: '/tcos', action: 'tcosList' }
   ],
 
