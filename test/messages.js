@@ -193,12 +193,18 @@ describe('messages', function(){
       to: 1,
       attachment: "https://www.cs.purdue.edu/news/images/TopCoder.GIF"
     };
+    var attributes = [ "id", "tco_id", "subject", "content",
+                       "from_attendee", "from_attendee_name",
+                       "to_attendee", "to_attendee_name",
+                       "creation_date", "status", "attachment"
+                     ];
     var json_string = JSON.stringify(json_post);
     var req = request.post(setup.testUrl + "/tcos/"+tco_id+"/messages", {headers: {'content-type' : 'application/json'},
       body: json_string},function(err, res, body){
         body = JSON.parse(body);
         res.statusCode.should.equal(200);
-        body.response.rowCount.should.equal(1);
+        body.response.should.be.an.instanceOf(Array);
+        body.response[0].should.have.keys(attributes);
         done();
       }); 
   });

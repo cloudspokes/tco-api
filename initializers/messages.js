@@ -87,12 +87,32 @@ exports.messages = function(api, next){
           "(tco__c,from_attendee__c,to_attendee__c, subject__c,content__c,attachment__c) values " +
            "((SELECT sfid from salesforce.tco__c where unique_id__c = '"+ params.tco_id +"')" + ",(SELECT sfid from salesforce.tco_attendee__c where id = '" + params.from +"')"+
           ",(SELECT sfid from salesforce.tco_attendee__c where id = '" + params.to + "')"+
-          ",'" + params.subject + "','"+params.content+"','" + params.attachment + "')";
+          ",'" + params.subject + "','"+params.content+"','" + params.attachment + "') returning id";
 
         client.query(sql, function(err, rs) {
-          console.log("RESSS" + rs.inspect);
-          if (err) next(true);
-          if (!err) next(rs);
+          if (err) next(err);
+
+          if (!err) {
+                var sql = "SELECT msgs.id, unique_id__c as tco_id, " +
+              "subject__c as subject, content__c as content, " +
+              "src.name as from_attendee_name, " +
+              "src.id as from_attendee, dst.name as to_attendee_name, " +
+              "dst.id as to_attendee, msgs.createddate as creation_date, " +
+              "msgs.status__c as status, msgs.attachment__c as attachment " +
+              "FROM salesforce.tco__c as tco " +
+              "INNER JOIN salesforce.tco_private_message__c as msgs " +
+              "ON tco.sfid = msgs.tco__c " +
+              "INNER JOIN salesforce.tco_attendee__c as src " +
+              "ON msgs.from_attendee__c = src.sfid " +
+              "INNER JOIN salesforce.tco_attendee__c as dst " +
+              "ON msgs.to_attendee__c = dst.sfid " +
+              "WHERE tco.unique_id__c = $1 AND msgs.id = $2";
+
+            client.query(sql,[ params.tco_id, rs["rows"][0].id ], function(err, rs) {
+              if (err) next(err);
+              if (!err) next(rs['rows']);
+            });
+          }
         });
       });
     }
