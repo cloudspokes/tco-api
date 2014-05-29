@@ -43,7 +43,7 @@ example:
 exports.routes = {
 
   get: [
-    { path: '/my-profile/settings/:id', action: 'settings' },
+    { path: '/my-profile/:id/settings', action: 'getSettings' },
     { path: '/my-profile/:id', action: 'profile' },
     { path: '/tcos/:tco_id/events/:id/attendees', action: 'eventAttendees' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'eventLiked' },
@@ -77,11 +77,8 @@ exports.routes = {
     { path: '/tcos', action: 'tcosList' }
   ],
 
-  post: [
-    { path: '/tcos/:tco_id/messages', action: 'postMessage'}
-  ],
-
   put: [
+    { path: '/my-profile/:id/settings', action: 'updateSettings' },
     { path: '/my-profile/:id', action: 'updateProfile' }
   ],
 
@@ -90,6 +87,7 @@ exports.routes = {
   ],
 
   post: [
+    { path: '/tcos/:tco_id/messages', action: 'postMessage'},
     { path: '/tcos/:tco_id/attendees/:id/like', action: 'likeAttendee' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'likeEvent' },
     { path: '/tcos/:tco_id/albums/:id/like', action: 'likeAlbum' }
