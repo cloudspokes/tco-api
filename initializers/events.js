@@ -18,7 +18,7 @@ exports.events = function(api, next){
          if (params.date) sql += " AND '" + params.date + "' BETWEEN to_char(event.start_time__c, 'YYYY-MM-DD') AND to_char(event.end_time__c, 'YYYY-MM-DD')";
         client.query(sql, function(err, rs) {
           if (err) next(err);
-          if (!err) next(rs['rows']);         
+          if (!err) next(rs['rows']);
         })
       })
     },
@@ -32,11 +32,11 @@ exports.events = function(api, next){
          "from salesforce.tco_event__c as event " +
          "inner join salesforce.tco__c as tco on event.tco__c = tco.sfid " +
          "where tco.unique_id__c = '"+params.tco_id+ "' AND " +
-         "event.id = '" + params.id +"'"; 
+         "event.id = '" + params.id +"'";
 
         client.query(sql, function(err, rs) {
           if (err) next(err);
-          if (!err) next(rs['rows']);         
+          if (!err) next(rs['rows']);
         })
       })
     },
@@ -79,6 +79,22 @@ exports.events = function(api, next){
         client.query(sql, [tco_id, id], function(err, rs) {
           if (err) next(err);
           if (!err) next({ liked: rs['rows'][0].likes_count > 0 });
+        });
+      });
+    },
+
+    like: function(tco_id, id, next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "INSERT INTO salesforce.tco_favorite__c(type__c, fav_event__c)" +
+          " SELECT 'Event', event.sfid" +
+          " FROM salesforce.tco_event__c as event" +
+          " INNER JOIN salesforce.tco__c as tco" +
+          " ON tco.sfid = event.tco__c" +
+          " WHERE unique_id__c = $1 AND event.id = $2";
+        client.query(sql, [ tco_id, id ], function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs);
         });
       });
     }
