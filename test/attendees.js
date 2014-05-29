@@ -4,7 +4,7 @@ var setup = require("./_setup.js")._setup;
 var pg = require('pg').native;
 var Q = require("q");
 
-describe('attendees', function(){
+describe.only('attendees', function(){
 
   before(function(done){
     setup.init(done);
@@ -112,6 +112,7 @@ describe('attendees', function(){
     request.get(setup.testUrl + "/tcos/tco14/attendees/5/like",
       function (err, res, body) {
         body = JSON.parse(body);
+        console.log(body);
         res.statusCode.should.equal(200);
         should.equal(body.count, null);
         body.response.should.be.an.instanceof(Object);
