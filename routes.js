@@ -44,6 +44,7 @@ exports.routes = {
 
   get: [
     { path: '/my-profile/settings/:id', action: 'settings' },
+    { path: '/my-profile/:id', action: 'profile' },
     { path: '/tcos/:tco_id/events/:id/attendees', action: 'eventAttendees' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'eventLiked' },    
     { path: '/tcos/:tco_id/events/:id', action: 'event' },
@@ -74,6 +75,14 @@ exports.routes = {
     { path: '/tcos/:tco_id/favorite-events', action: 'favoriteEvents' },
     { path: '/tcos/:id', action: 'tco' },    
     { path: '/tcos', action: 'tcosList' }
+  ],
+
+  post: [
+    { path: '/tcos/:tco_id/messages', action: 'postMessage'}
+  ],
+
+  put: [
+    { path: '/my-profile/:id', action: 'updateProfile' }
   ],
 
   delete: [

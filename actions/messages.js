@@ -62,3 +62,26 @@ exports.message = {
     );
   }
 };
+
+exports.postMessage = {
+  name:                   'postMessage',
+  description:            'Post a single message object. Method: POST',
+  outputExample:          {},
+  matchExtensionMimeType: false,
+  version:                1.0,
+  toDocument:             true,
+  inputs: {
+    required: [ 'tco_id' , 'subject', 'from', 'to'],
+    optional: ['attachment', 'content', 'name']
+  },
+
+  run: function(api, connection, next){
+    api.messages.post(connection.params,
+      function(data){
+        connection.response.response = data;
+        connection.response.count = data.length;
+        next(connection, true);
+      }
+    );
+  }
+};
