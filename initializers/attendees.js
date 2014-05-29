@@ -22,7 +22,7 @@ exports.attendees = function(api, next){
         if(params.handle) sql += " AND handle__c='" + params.handle + "'";
         client.query(sql, function(err, rs) {
           if (err) next(err);
-          if (!err) next(rs['rows']);         
+          if (!err) next(rs['rows']);
         })
       })
     },
@@ -45,7 +45,7 @@ exports.attendees = function(api, next){
 
         client.query(sql, function(err, rs) {
           if (err) next(err);
-          if (!err) next(rs['rows']);         
+          if (!err) next(rs['rows']);
         })
       })
     },
@@ -65,7 +65,7 @@ exports.attendees = function(api, next){
 
         client.query(sql, function(err, rs) {
           if (err) next(err);
-          if (!err) next(rs['rows']);         
+          if (!err) next(rs['rows']);
         })
       })
     },
@@ -85,7 +85,23 @@ exports.attendees = function(api, next){
           if (!err) next({ liked: rs['rows'][0].likes_count > 0 });
         });
       });
-    }    
+    },
+
+    like: function(tco_id, id, next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "INSERT INTO salesforce.tco_favorite__c(type__c, fav_attendee__c)" +
+          " SELECT 'Attendee', attendee.sfid" +
+          " FROM salesforce.tco_attendee__c as attendee" +
+          " INNER JOIN salesforce.tco__c as tco" +
+          " ON tco.sfid = attendee.tco__c" +
+          " WHERE unique_id__c = $1 AND attendee.id = $2";
+        client.query(sql, [ tco_id, id ], function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs);
+        });
+      });
+    }
   }
 
   next();

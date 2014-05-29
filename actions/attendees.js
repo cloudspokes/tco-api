@@ -47,7 +47,7 @@ exports.attendeeLiked = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  inputs: {  
+  inputs: {
     required: [ 'tco_id', 'id' ],
     optional: [],
   },
@@ -68,7 +68,7 @@ exports.attendeeUnreadMessages = {
   outputExample:          {},
   matchExtensionMimeType: false,
   version:                1.0,
-  toDocument:             true,  
+  toDocument:             true,
   inputs: {
     required: ['tco_id','attendee_id'],
     optional: [],
@@ -80,5 +80,28 @@ exports.attendeeUnreadMessages = {
       connection.response.count = data.length;
       next(connection, true);
     });
+  }
+};
+
+exports.likeAttendee = {
+  name:                   'likeAttendee',
+  description:            'Likes an attendee. Method: POST',
+  outputExample:          {},
+  matchExtensionMimeType: false,
+  version:                1.0,
+  toDocument:             true,
+  inputs: {
+    required: [ 'tco_id', 'id' ],
+    optional: [],
+  },
+
+  run: function(api, connection, next) {
+    api.attendees.like(connection.params.tco_id, connection.params.id,
+      function(data) {
+        connection.response.response = data;
+        connection.response.count = null;
+        next(connection, true);
+      }
+    );
   }
 };
