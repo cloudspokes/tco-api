@@ -44,6 +44,7 @@ exports.routes = {
 
   get: [
     { path: '/my-profile/:id/settings', action: 'getSettings' },
+    { path: '/my-profile/:id/event-notifications/count', action: 'eventNotificationsCount' },
     { path: '/my-profile/:id', action: 'profile' },
     { path: '/tcos/:tco_id/events/:id/attendees', action: 'eventAttendees' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'eventLiked' },
