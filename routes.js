@@ -91,7 +91,8 @@ exports.routes = {
 
   post: [
     { path: '/tcos/:tco_id/attendees/:id/like', action: 'likeAttendee' },
-    { path: '/tcos/:tco_id/events/:id/like', action: 'likeEvent' }
+    { path: '/tcos/:tco_id/events/:id/like', action: 'likeEvent' },
+    { path: '/tcos/:tco_id/albums/:id/like', action: 'likeAlbum' }
   ]
 
 };

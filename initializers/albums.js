@@ -49,6 +49,22 @@ exports.albums = function(api, next) {
           if (!err) next({ liked: rs['rows'][0].likes_count > 0 });
         });
       });
+    },
+
+    like: function(tco_id, id, next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "INSERT INTO salesforce.tco_favorite__c(type__c, fav_album__c)" +
+          " SELECT 'Album', album.sfid" +
+          " FROM salesforce.tco_album__c as album" +
+          " INNER JOIN salesforce.tco__c as tco" +
+          " ON tco.sfid = album.tco__c" +
+          " WHERE unique_id__c = $1 AND album.id = $2";
+        client.query(sql, [ tco_id, id ], function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs);
+        });
+      });
     }
   };
 
