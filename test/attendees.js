@@ -4,7 +4,7 @@ var setup = require("./_setup.js")._setup;
 var pg = require('pg').native;
 var Q = require("q");
 
-describe.only('attendees', function(){
+describe('attendees', function(){
 
   before(function(done){
     setup.init(done);
