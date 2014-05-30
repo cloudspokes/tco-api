@@ -44,6 +44,7 @@ exports.routes = {
 
   get: [
     { path: '/my-profile/settings/:id', action: 'settings' },
+    { path: '/my-profile/:id/current-challenges', action: 'getProfileChallenges' },
     { path: '/my-profile/:id/settings', action: 'getSettings' },
     { path: '/my-profile/:id/event-notifications/count', action: 'eventNotificationsCount' },
     { path: '/my-profile/:id', action: 'profile' },

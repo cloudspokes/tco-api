@@ -39,3 +39,24 @@ exports.updateProfile = {
     });
   }
 };
+
+exports.getProfileChallenges = {
+  name:                   'getProfileChallenges',
+  description:            'Gets challenges of an attendee. Method: PUT',
+  outputExample:          {},
+  matchExtensionMimeType: false,
+  version:                1.0,
+  toDocument:             true,
+  inputs: {
+    required: ['id'],
+    optional: [],
+  },
+
+  run: function(api, connection, next){
+    api.profile.getChallenges(connection.params,function(data){
+      connection.response.response = data;
+      connection.response.count = data.length;
+      next(connection, true);
+    });
+  }
+};

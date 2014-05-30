@@ -49,6 +49,20 @@ describe('profile', function(){
       body.response[0].should.have.keys(attributes);
       done();
     });
-  });    
+  }); 
+
+   it("/my_profile/#{id}/current-challenges should return challenges of a single attendee", function(done){
+    this.timeout(5000);
+    id = '2';
+    attributes = ['id', 'tco_id', 'name', 'start_time', 'end_time', 'contest_type', 'contest_purse', 'contest_points']
+    request.get(setup.testUrl + "/my-profile/"+id+"/current-challenges", function(err, res, body){
+      body = JSON.parse(body);
+      res.statusCode.should.equal(200);
+      body.count.should.equal(1);
+      body.response.should.be.an.instanceOf(Array);
+      body.response[0].should.have.keys(attributes);
+      done();
+    });
+  });   
 
 });
