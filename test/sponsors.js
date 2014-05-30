@@ -6,7 +6,7 @@ var Q = require("q");
 
 describe('sponsors', function(){
 
-  var timeoutInterval = 20000;
+  var timeoutInterval = 15000;
 
   before(function(done){
     setup.init(done);
@@ -45,9 +45,9 @@ describe('sponsors', function(){
    */
   it("/tcos/{tco_id}/sponsors should return all sponsors", function(done) {
     this.timeout(timeoutInterval);
-    attributes = [ 'id', 'tco_id', 'name', 'level',
-                   'logo_url', 'video_url', 'description' ];
-    tco_id = 'tco14'
+    var attributes = [ 'id', 'tco_id', 'name', 'level',
+                       'logo_url', 'video_url', 'description' ];
+    var tco_id = 'tco14';
     request.get(setup.testUrl + "/tcos/" + tco_id + "/sponsors",
       function (err, res, body) {
         body = JSON.parse(body);
@@ -58,6 +58,22 @@ describe('sponsors', function(){
           body.response[i].tco_id.should.equal(tco_id);
           body.response[i].should.to.have.keys(attributes);
         }
+        done();
+      }
+    );
+  });
+
+  /*
+   * Tests list all Sponsors: GET /tcos/{tco_id}/sponsors
+   */
+  it("/tcos/{tco_id}/sponsors should return no sponsors", function(done) {
+    this.timeout(timeoutInterval);
+    var tco_id = 'tco13';
+    request.get(setup.testUrl + "/tcos/" + tco_id + "/sponsors",
+      function (err, res, body) {
+        body = JSON.parse(body);
+        res.statusCode.should.equal(200);
+        body.count.should.equal(0);
         done();
       }
     );
