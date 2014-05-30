@@ -39,6 +39,21 @@ exports.sponsors = function(api, next){
       });
     },
 
+    apply: function(sponsor_id, attendee_id, name, next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "INSERT INTO salesforce.tco_sponsor_applicant__c (sponsor__c, attendee__c, name) " +
+          "VALUES(" +
+          "  (SELECT sfid FROM salesforce.tco_sponsor__c WHERE id = $1)," +
+          "  (SELECT sfid FROM salesforce.tco_attendee__c WHERE id = $2)," +
+          "  $3" +
+          ") RETURNING id";
+        client.query(sql, [ sponsor_id, attendee_id, name ], function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs);
+        });
+      });
+    }
   },
 
   next();
