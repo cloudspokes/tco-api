@@ -91,6 +91,7 @@ exports.routes = {
   ],
 
   post: [
+    { path: '/tcos/:tco_id/albums/:album_id/multimedia', action: 'postMultimedia'},
     { path: '/tcos/:tco_id/messages', action: 'postMessage'},
     { path: '/tcos/:tco_id/attendees/:id/like', action: 'likeAttendee' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'likeEvent' },
