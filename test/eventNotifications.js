@@ -41,17 +41,4 @@ describe('eventNotifications', function(){
       done();
     });
   });
-  
-  it("/tcos/{tco_id}/events/{id}/notififcations should add a event notification", function(done){
-    this.timeout(5000);
-    tco_id = 'tco14';
-    id = 1;
-    
-    request.post(setup.testUrl + "/tcos/"+tco_id+"/events/"+id+"/notififcations", function(err, res, body){
-      body = JSON.parse(body);
-      res.statusCode.should.equal(200);
-      body.response.rowCount.should.equal(1);
-      done();
-    });
-  });
 });

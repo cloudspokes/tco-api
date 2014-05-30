@@ -92,8 +92,7 @@ exports.routes = {
     { path: '/tcos/:tco_id/messages', action: 'postMessage'},
     { path: '/tcos/:tco_id/attendees/:id/like', action: 'likeAttendee' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'likeEvent' },
-    { path: '/tcos/:tco_id/albums/:id/like', action: 'likeAlbum' },
-    { path: '/tcos/:tco_id/events/:id/notifications', action: 'postEventNotification'}
+    { path: '/tcos/:tco_id/albums/:id/like', action: 'likeAlbum' }
   ]
 
 };
