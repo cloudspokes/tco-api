@@ -29,7 +29,8 @@ exports.eventNotifications = function(api, next){
       client.connect(function(err) {
         var sql = "insert into salesforce.tco_event_notification__c " +  
         "(event__c,attendee__c) values " +
-        "((SELECT sfid from salesforce.tco__c where unique_id__c = '"+ params.tco_id +"')" + ",(SELECT sfid from salesforce.tco_attendee__c where id = '" + params.id +"'))"
+        "((SELECT sfid from salesforce.tco_event__c where id = '"+ params.id +"')" + ",(SELECT sfid from salesforce.tco_attendee__c where id = '" + params.attendee_id +"'))" +
+        " RETURNING id";
 
         client.query(sql, function(err, rs) {
           if (err) next(err);
