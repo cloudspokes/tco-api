@@ -48,7 +48,7 @@ exports.postEventNotification = {
   version:                1.0,
   toDocument:             true,
   inputs: {
-    required: [ 'tco_id' , 'id', 'attendee_id'],
+    required: [ 'tco_id' , 'id'],
     optional: []
   },
 

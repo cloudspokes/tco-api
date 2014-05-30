@@ -21,6 +21,7 @@ describe('eventNotifications', function(){
     request.get(setup.testUrl + "/my-profile/"+attendee_id+"/event-notifications", function(err, res, body){
       body = JSON.parse(body);
       res.statusCode.should.equal(200);
+      body.count.should.equal(1);
       body.response.should.be.an.instanceOf(Array);
       body.response[0].should.have.keys(attributes);
       done();
@@ -36,24 +37,20 @@ describe('eventNotifications', function(){
       res.statusCode.should.equal(200);
       body.count.should.equal(1);
       body.response.should.be.an.instanceOf(Array);
+      body.response[0].count.should.equal("1");
       done();
     });
   });
   
-  it("/tcos/{tco_id}/events/{id}/notifications should add a event notification", function(done){
+  it("/tcos/{tco_id}/events/{id}/notififcations should add a event notification", function(done){
     this.timeout(5000);
     tco_id = 'tco14';
     id = 1;
     
-    request.post(setup.testUrl + "/tcos/"+tco_id+"/events/"+id+"/notifications", 
-      {
-        form : {
-          attendee_id: 2
-        }
-      }, function(err, res, body){
+    request.post(setup.testUrl + "/tcos/"+tco_id+"/events/"+id+"/notififcations", function(err, res, body){
       body = JSON.parse(body);
       res.statusCode.should.equal(200);
-      body.count.should.equal(1);
+      body.response.rowCount.should.equal(1);
       done();
     });
   });
