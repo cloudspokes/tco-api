@@ -48,6 +48,7 @@ exports.routes = {
     { path: '/my-profile/:id/event-notifications', action: 'eventNotificationsList' },
     { path: '/my-profile/:id', action: 'profile' },
     { path: '/tcos/:tco_id/events/:id/attendees', action: 'eventAttendees' },
+    { path: '/tcos/:tco_id/events/:id/notifications', action: 'getEventNotifications' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'eventLiked' },
     { path: '/tcos/:tco_id/events/:id', action: 'event' },
     { path: '/tcos/:tco_id/events', action: 'eventsList' },

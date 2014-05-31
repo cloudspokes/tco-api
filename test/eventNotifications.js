@@ -40,6 +40,21 @@ describe('eventNotifications', function(){
     });
   });
   
+  it("/tcos/{tco_id}/events/{id}/notifications should return an array of event notification", function(done){
+    this.timeout(5000);
+    tco_id = 'tco14';
+    id = 1;
+    attributes = ["id","attendee_id","name","start_time","end_time","location","type"];
+   
+    request.get(setup.testUrl + "/tcos/"+tco_id+"/events/"+id+"/notifications", function(err, res, body){
+      body = JSON.parse(body);
+      res.statusCode.should.equal(200);
+      body.response.should.be.an.instanceOf(Array);
+      body.response[0].should.have.keys(attributes);
+      done();
+    });
+  });
+  
   it("/tcos/{tco_id}/events/{id}/notifications should add a event notification", function(done){
     this.timeout(5000);
     tco_id = 'tco14';
