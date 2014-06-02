@@ -47,8 +47,10 @@ exports.routes = {
     { path: '/my-profile/:id/current-challenges', action: 'getProfileChallenges' },
     { path: '/my-profile/:id/settings', action: 'getSettings' },
     { path: '/my-profile/:id/event-notifications/count', action: 'eventNotificationsCount' },
+    { path: '/my-profile/:id/event-notifications', action: 'eventNotificationsList' },
     { path: '/my-profile/:id', action: 'profile' },
     { path: '/tcos/:tco_id/events/:id/attendees', action: 'eventAttendees' },
+    { path: '/tcos/:tco_id/events/:id/notifications', action: 'getEventNotifications' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'eventLiked' },
     { path: '/tcos/:tco_id/events/:id', action: 'event' },
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
@@ -96,7 +98,8 @@ exports.routes = {
     { path: '/tcos/:tco_id/attendees/:id/like', action: 'likeAttendee' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'likeEvent' },
     { path: '/tcos/:tco_id/albums/:id/like', action: 'likeAlbum' },
-    { path: '/tcos/:tco_id/sponsors/:id/apply', action: 'applySponsor' }
+    { path: '/tcos/:tco_id/sponsors/:id/apply', action: 'applySponsor' },
+    { path: '/tcos/:tco_id/events/:id/notifications', action: 'postEventNotification'}
   ]
 
 };
