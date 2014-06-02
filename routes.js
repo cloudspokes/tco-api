@@ -44,6 +44,7 @@ exports.routes = {
 
   get: [
     { path: '/my-profile/settings/:id', action: 'settings' },
+    { path: '/my-profile/:id/current-challenges', action: 'getProfileChallenges' },
     { path: '/my-profile/:id/settings', action: 'getSettings' },
     { path: '/my-profile/:id/event-notifications/count', action: 'eventNotificationsCount' },
     { path: '/my-profile/:id', action: 'profile' },
@@ -53,7 +54,8 @@ exports.routes = {
     { path: '/tcos/:tco_id/events', action: 'eventsList' },
     { path: '/tcos/:tco_id/messages/:id', action: 'message' },
     { path: '/tcos/:tco_id/messages', action: 'messagesList' },
-    { path: '/tcos/:tco_id/attendees/:id/like', action: 'attendeeLiked' },
+    { path: '/tcos/:tco_id/attendees/:attendee_id/current-challenges', action: 'attendeeChallenges' },
+    { path: '/tcos/:tco_id/attendees/:id/like', action: 'attendeeLiked' },    
     { path: '/tcos/:tco_id/attendees/:id', action: 'attendee' },
     { path: '/tcos/:tco_id/attendees', action: 'attendeesList' },
     {
@@ -89,6 +91,7 @@ exports.routes = {
   ],
 
   post: [
+    { path: '/tcos/:tco_id/albums/:album_id/multimedia', action: 'postMultimedia'},
     { path: '/tcos/:tco_id/messages', action: 'postMessage'},
     { path: '/tcos/:tco_id/attendees/:id/like', action: 'likeAttendee' },
     { path: '/tcos/:tco_id/events/:id/like', action: 'likeEvent' },

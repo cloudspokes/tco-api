@@ -217,5 +217,19 @@ describe('attendees', function(){
 
     return deferred.promise;
   }
-
+  
+	it("/tcos/#{tco_id}/attendees/#{attendee_id}/current-challenges should return current challenges of an attendee", function(done){
+	    this.timeout(5000);
+	    tco_id = 'tco14';
+	    attendee_id = '2';
+	    attributes = ['id', 'tco_id', 'name', 'start_time', 'end_time', 'contest_type', 'contest_purse', 'contest_points']
+	    request.get(setup.testUrl + "/tcos/"+tco_id+"/attendees/"+attendee_id+"/current-challenges", function(err, res, body){
+	      body = JSON.parse(body);
+	      res.statusCode.should.equal(200);
+	      body.count.should.equal(1);
+	      body.response.should.be.an.instanceOf(Array);
+	      body.response[0].should.have.keys(attributes);
+	      done();
+	    });
+	  });
 });
