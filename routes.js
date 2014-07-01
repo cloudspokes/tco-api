@@ -99,7 +99,8 @@ exports.routes = {
     { path: '/tcos/:tco_id/events/:id/like', action: 'likeEvent' },
     { path: '/tcos/:tco_id/albums/:id/like', action: 'likeAlbum' },
     { path: '/tcos/:tco_id/sponsors/:id/apply', action: 'applySponsor' },
-    { path: '/tcos/:tco_id/events/:id/notifications', action: 'postEventNotification'}
+    { path: '/tcos/:tco_id/events/:id/notifications', action: 'postEventNotification'},
+    { path: '/signup', action: 'signUp'}
   ]
 
 };
