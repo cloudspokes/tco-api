@@ -44,3 +44,26 @@ exports.multimediaList = {
     );
   }
 };
+
+exports.postMultimedia = {
+  name:                   'postMultimedia',
+  description:            'Posts a Multimedia object. Method: POST',
+  outputExample:          {},
+  matchExtensionMimeType: false,
+  version:                1.0,
+  toDocument:             true,
+  inputs: {
+    required: [ 'tco_id', 'album_id' ],
+    optional: ['name', 'url'],
+  },
+
+  run: function(api, connection, next){
+    api.multimedia.post(connection.params,
+      function(data){
+        connection.response.response = data;
+        connection.response.count = data.length;
+        next(connection, true);
+      }
+    );
+  }
+};

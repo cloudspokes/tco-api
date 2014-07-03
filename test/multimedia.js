@@ -45,6 +45,7 @@ describe('multimedia', function(){
    *
    *    GET /tcos/{tco_id}/albums/{album_id}/multimedia
    */
+   
   it("/tcos/{tco_id}/albums/{album_id}/multimedia should return" +
   		" all multimedia", function(done) {
     this.timeout(5000);
@@ -62,6 +63,32 @@ describe('multimedia', function(){
         body.response[i].tco_id.should.equal(tco_id);
         body.response[i].should.to.have.keys(attributes);
       }
+      done();
+    });
+  });
+
+  it("/tcos/{tco_id}/albums/{album_id}/multimedia should post" +
+      "a multimedia", function(done) {
+    this.timeout(5000);
+    attributes = [ 'id', 'tco_id', 'album_id', 'name', 'url' ];
+    tco_id = 'tco14';
+    album_id = 1;
+    testUrl = setup.testUrl + "/tcos/" + tco_id +
+      "/albums/" + album_id + "/multimedia";
+    var json_post = {
+      name: "TopCoder.jpg",
+      url: "http://www.sce.carleton.ca/~abdou/img/Topcoder.png"
+    };
+    var json_string = JSON.stringify(json_post);
+    request.post(setup.testUrl + "/tcos/"+tco_id +"/albums/"+album_id+"/multimedia",{headers: {'content-type' : 'application/json'},
+      body: json_string}, function(err, res, body){
+      body = JSON.parse(body);
+      res.statusCode.should.equal(200);
+      body.count.should.equal(1);
+      body.response.should.be.an.instanceOf(Array);
+      body.response[0].name.should.equal(json_post.name);
+      body.response[0].url.should.equal(json_post.url);
+      body.response[0].should.have.keys(attributes);
       done();
     });
   });

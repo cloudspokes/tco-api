@@ -4,6 +4,62 @@ exports.eventNotifications = function(api, next){
 
   api.eventNotifications = {
   
+    list: function(params,next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "select notification.id, tco.unique_id__c as tco_id, notification.name, event.start_time__c as start_time, " +
+        " event.end_time__c as end_time, event.location__c as location, event.type__c as type from salesforce.tco_event_notification__c as notification "+
+        "inner join salesforce.tco_attendee__c as attendee"+
+        " on attendee.sfid = notification.attendee__c"+
+        " inner join salesforce.tco_event__c as event"+
+        " on event.sfid = notification.event__c"+
+        " inner join salesforce.tco__c as tco"+
+        " on tco.sfid = event.tco__c"+
+        " where attendee.id = '" + params.id  + "'";
+
+        client.query(sql, function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs['rows']);
+        })
+      })
+    },
+    
+    get: function(params,next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "select notification.id, attendee.id as attendee_id, notification.name, event.start_time__c as start_time, " +
+        " event.end_time__c as end_time, event.location__c as location, event.type__c as type from salesforce.tco_event_notification__c as notification "+
+        "inner join salesforce.tco_attendee__c as attendee"+
+        " on attendee.sfid = notification.attendee__c"+
+        " inner join salesforce.tco_event__c as event"+
+        " on event.sfid = notification.event__c"+
+        " inner join salesforce.tco__c as tco"+
+        " on tco.sfid = event.tco__c"+
+        " where event.id = '" + params.id  + "'" +
+        " and tco.unique_id__c = '" + params.tco_id + "'";
+
+        client.query(sql, function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs['rows']);
+        })
+      })
+    },
+    
+    post: function(params, next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "insert into salesforce.tco_event_notification__c " +  
+        "(event__c,attendee__c) values " +
+        "((SELECT sfid from salesforce.tco_event__c where id = '"+ params.id +"')" + ",(SELECT sfid from salesforce.tco_attendee__c where id = '" + params.attendee_id +"'))" +
+        " RETURNING id";
+
+        client.query(sql, function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs['rows']);
+        });
+      });      
+    },
+      
     getCount: function(params,next) {
       var client = new pg.Client(api.config.general.pg.connString);
       client.connect(function(err) {

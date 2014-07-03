@@ -71,6 +71,27 @@ exports.profile = function(api, next){
               })
             })
       });
+    },
+
+    getChallenges: function(params,next) {
+      var client = new pg.Client(api.config.general.pg.connString);
+      client.connect(function(err) {
+        var sql = "SELECT events.id as id, tcos.unique_id__c as tco_id, " +
+          "events.name as name, events.start_time__c as start_time, "+
+          "events.end_time__c as end_time, events.contest_type__c as contest_type, "+
+          "events.contest_purse__c || '$' as contest_purse, "+
+          "events.contest_points__c as contest_points "+
+          "FROM salesforce.tco_event__c as events inner join "+
+          "salesforce.tco__c as tcos on tcos.sfid = events.tco__c "+
+          "inner join salesforce.tco_attendee__c as attendees on attendees.tco__c = tcos.sfid "+
+          "inner join salesforce.tco_event_participant__c as participants "+
+          "on participants.attendee__c = attendees.sfid AND participants.event__c = events.sfid "+
+          " where attendees.id = '" + params.id + "' AND events.type__c = 'Competition'"; 
+        client.query(sql, function(err, rs) {
+          if (err) next(err);
+          if (!err) next(rs['rows']);
+        });
+      })
     }
   };
 
