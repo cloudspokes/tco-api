@@ -57,7 +57,7 @@ exports.routes = {
     { path: '/tcos/:tco_id/messages/:id', action: 'message' },
     { path: '/tcos/:tco_id/messages', action: 'messagesList' },
     { path: '/tcos/:tco_id/attendees/:attendee_id/current-challenges', action: 'attendeeChallenges' },
-    { path: '/tcos/:tco_id/attendees/:id/like', action: 'attendeeLiked' },    
+    { path: '/tcos/:tco_id/attendees/:id/like', action: 'attendeeLiked' },
     { path: '/tcos/:tco_id/attendees/:id', action: 'attendee' },
     { path: '/tcos/:tco_id/attendees', action: 'attendeesList' },
     {
@@ -100,7 +100,8 @@ exports.routes = {
     { path: '/tcos/:tco_id/albums/:id/like', action: 'likeAlbum' },
     { path: '/tcos/:tco_id/sponsors/:id/apply', action: 'applySponsor' },
     { path: '/tcos/:tco_id/events/:id/notifications', action: 'postEventNotification'},
-    { path: '/signup', action: 'signUp'}
+    { path: '/signup', action: 'signUp'},
+    { path: '/signin', action: 'signin' }
   ]
 
 };
