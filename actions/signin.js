@@ -10,7 +10,7 @@ exports.signin = {
       optional: [],
     },
 
-    authenticated: false,
+    authenticated:          false,
     run: function(api, connection, next) {
       api.signin.post(connection, function(connection, success, msg) {
         connection.response.success = success;
