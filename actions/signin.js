@@ -6,7 +6,7 @@ exports.signin = {
     version:                1.0,
     toDocument:             true,
     inputs: {
-      required: [ 'email', 'password' ],
+      required: [ 'tco_id', 'email', 'password' ],
       optional: [],
     },
 

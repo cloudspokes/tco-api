@@ -17,7 +17,7 @@ describe('signin', function() {
    */
   it("/signin should authenticate a user", function(done) {
     this.timeout(50000);
-    request.post(setup.testUrl + "/signin",
+    request.post(setup.testUrl + "/tcos/tco14/signin",
       {
         form: {
           email: 'sample@tcosapi.com',
@@ -38,7 +38,7 @@ describe('signin', function() {
    */
   it("/signin should not authenticate a user", function(done) {
     this.timeout(50000);
-    request.post(setup.testUrl + "/signin",
+    request.post(setup.testUrl + "/tcos/tco14/signin",
       {
         form: {
           email: 'sample@tcosapi.com',

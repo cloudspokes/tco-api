@@ -4,8 +4,10 @@ var forcifier = require('forcifier');
 
 function checkIfExists(client,params) {
       var deferred = Q.defer();
-      var sql = "SELECT id FROM salesforce.tco_attendee__c where email__c = '"+
-            params.email + "' OR handle__c = '" + params.handle + "'";
+      var sql = "SELECT id FROM salesforce.tco_attendee__c where tco__c = " +
+            "(select sfid from salesforce.tco__c where unique_id__c = '" + params.tco_id + "') and (email__c = '"+
+            params.email + "' OR handle__c = '" + params.handle + "')";
+      console.log(sql);
       client.connect(function(err) {
         client.query(sql, function(err, rs) {
           if (err) deferred.reject(err);
@@ -32,11 +34,11 @@ exports.signup = function(api, next){
                   params[optionals[key]] = "";
                 }   
               }
-              var sql = "INSERT into salesforce.tco_attendee__c (name,password__c,email__c,handle__c,first_name__c,"+
-              "last_name__c, display_name__c,avatar__c,quote__c,country__c) values "+
-              "('" + params.username +"','" + params.password +"','" + params.email + "','" + params.handle +"','"+
+              var sql = "INSERT into salesforce.tco_attendee__c (tco__c, name,password__c,email__c,handle__c,first_name__c,"+
+              "last_name__c, display_name__c,avatar__c,quote__c,country__c, type__c) values "+
+              "((select sfid from salesforce.tco__c where unique_id__c = '" + params.tco_id + "'), '" + params.username +"','" + params.password +"','" + params.email + "','" + params.handle +"','"+
               params.first_name + "','" + params.last_name + "','" + params.display_name + "','" + params.avatar + "','"+
-              params.quote + "','" + params.country + "') returning id,name,email__c,handle__c";
+              params.quote + "','" + params.country + "', 'Competitor') returning id,name,email__c,handle__c";
               client.query(sql, function(err, rs) {
                 console.log(sql);
                 if (err) next(err);

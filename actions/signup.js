@@ -6,7 +6,7 @@ exports.signUp = {
   version:                1.0,
   toDocument:             true,
   inputs: {
-    required: [ 'username', 'password', 'email', 'handle'],
+    required: [ 'tco_id', 'username', 'password', 'email', 'handle'],
     optional: ['country', 'quote', 'avatar','display_name', 'first_name', 'last_name'],
   },
 

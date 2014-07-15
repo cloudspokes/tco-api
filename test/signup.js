@@ -63,7 +63,7 @@ describe('signup', function(){
 	      handle: "sampleTCO"
 	    };
 	    var json_string = JSON.stringify(json_post);
-	    request.post(setup.testUrl + "/signup", {headers: {'content-type' : 'application/json'},
+	    request.post(setup.testUrl + "/tcos/tco14/signup", {headers: {'content-type' : 'application/json'},
 	      body: json_string},function(err, res, body){
 	      body = JSON.parse(body);
 	      res.statusCode.should.equal(200);
@@ -88,7 +88,7 @@ describe('signup', function(){
 	      handle: "sampleTCO"
 	    };
 	    var json_string = JSON.stringify(json_post);
-	    request.post(setup.testUrl + "/signup", {headers: {'content-type' : 'application/json'},
+	    request.post(setup.testUrl + "/tcos/tco14/signup", {headers: {'content-type' : 'application/json'},
 	      body: json_string},function(err, res, body){
 	      body = JSON.parse(body);
 	      res.statusCode.should.equal(200);
