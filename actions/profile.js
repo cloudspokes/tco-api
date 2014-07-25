@@ -5,6 +5,7 @@ exports.profile = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: ['id'],
     optional: [],
@@ -26,6 +27,7 @@ exports.updateProfile = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: ['id'],
     optional: ["name","email","country","quote","email"],
@@ -47,6 +49,7 @@ exports.getProfileChallenges = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: ['id'],
     optional: [],

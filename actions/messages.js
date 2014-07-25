@@ -5,6 +5,7 @@ exports.messagesList = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: ['tco_id'],
     optional: ['from','to'],
@@ -26,6 +27,7 @@ exports.deleteMessage = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: ['tco_id','id'],
     optional: []
@@ -47,6 +49,7 @@ exports.message = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'id' ],
     optional: [],
@@ -70,6 +73,7 @@ exports.postMessage = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: [ 'tco_id' , 'subject', 'from', 'to'],
     optional: ['attachment', 'content', 'name']
