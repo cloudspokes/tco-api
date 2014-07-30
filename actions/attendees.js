@@ -5,7 +5,6 @@ exports.attendeesList = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: ['tco_id'],
     optional: ['type','handle'],
@@ -27,7 +26,6 @@ exports.attendee = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: ['tco_id','id'],
     optional: [],
@@ -49,7 +47,6 @@ exports.attendeeLiked = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'id' ],
     optional: [],
@@ -72,7 +69,6 @@ exports.attendeeUnreadMessages = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: ['tco_id','attendee_id'],
     optional: [],
@@ -94,7 +90,6 @@ exports.likeAttendee = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'id' ],
     optional: [],
@@ -118,7 +113,6 @@ exports.attendeeChallenges = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,  
-  authenticated: true,
   inputs: {
     required: ['tco_id','attendee_id'],
     optional: [],

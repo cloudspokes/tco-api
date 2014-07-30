@@ -5,7 +5,6 @@ exports.news = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'id' ],
     optional: [],
@@ -29,7 +28,6 @@ exports.newsList = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id' ],
     optional: [ 'source', 'start_time' ],

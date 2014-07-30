@@ -5,7 +5,6 @@ exports.multimedia = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'album_id', 'id' ],
     optional: [],
@@ -30,7 +29,6 @@ exports.multimediaList = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'album_id' ],
     optional: [],
@@ -54,7 +52,6 @@ exports.postMultimedia = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'album_id' ],
     optional: ['name', 'url'],

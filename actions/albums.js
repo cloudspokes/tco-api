@@ -5,7 +5,6 @@ exports.album = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'id' ],
     optional: [],
@@ -29,7 +28,6 @@ exports.albumsList = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id' ],
     optional: [],
@@ -51,7 +49,6 @@ exports.albumLiked = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'id' ],
     optional: [],
@@ -75,7 +72,6 @@ exports.likeAlbum = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'id' ],
     optional: [],
