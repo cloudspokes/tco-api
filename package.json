@@ -8,14 +8,12 @@
   },
   "dependencies": {
     "actionhero": "8.0.8",
-    "forcifier": "0.0.3",
     "grunt": "latest",
-    "lodash": "~2.4.1",
-    "passport": "^0.2.0",
-    "passport-local": "^1.0.0",
-    "pg": "~3.1.0",
     "q": "~1.0.1",
-    "string": "~1.8.1"
+    "forcifier": "0.0.3",
+    "lodash": "~2.4.1",
+    "string": "~1.8.1",
+    "pg": "~3.1.0"
   },
   "devDependencies": {
     "mocha": "latest",

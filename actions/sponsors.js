@@ -28,7 +28,6 @@ exports.sponsorsList = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
-  authenticated: true,  
   inputs: {
     required: [ 'tco_id' ],
     optional: [],
