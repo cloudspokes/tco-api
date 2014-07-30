@@ -20,8 +20,7 @@ exports.signin = function(api, next) {
       user.connection_id = connection.id;
       connection.rawConnection.req.logIn(user, function () {
 
-        console.log(user);
-
+        // pass back their user info. -- TODO move query to attendee initializer for reuse
         var client = new pg.Client(api.config.general.pg.connString);
         client.connect(function(err) {
 
