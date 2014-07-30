@@ -12,9 +12,10 @@ exports.signin = {
 
     authenticated:          false,
     run: function(api, connection, next) {
-      api.signin.post(connection, function(connection, success, msg) {
+      api.signin.post(connection, function(connection, success, msg, user) {
         connection.response.success = success;
         connection.response.msg = msg;
+        connection.response.user = user;
         next(connection, true);
       });
     }
