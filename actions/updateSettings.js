@@ -5,6 +5,7 @@ exports.action = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: ['id', 'eventPushNotifications', 'allowPrivateMessages'],
     optional: [],

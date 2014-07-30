@@ -5,6 +5,7 @@ exports.eventNotificationsCount = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: ['id'],
     optional: [],

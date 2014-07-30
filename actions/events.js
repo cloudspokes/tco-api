@@ -7,6 +7,7 @@ exports.eventsList = {
   },
   blockedConnectionTypes: [],
   outputExample: {},
+  authenticated: true,
   version: 1.0,
   run: function(api, connection, next){
     api.events.list(connection.params, function(data){
@@ -26,6 +27,7 @@ exports.event = {
   },
   blockedConnectionTypes: [],
   outputExample: {},
+  authenticated: true,
   version: 1.0,
   run: function(api, connection, next){
     api.events.get(connection.params, function(data){
@@ -45,6 +47,7 @@ exports.eventAttendees = {
   },
   blockedConnectionTypes: [],
   outputExample: {},
+  authenticated: true,
   version: 1.0,
   run: function(api, connection, next){
     api.events.getAttendees(connection.params, function(data){
@@ -62,6 +65,7 @@ exports.eventLiked = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'id' ],
     optional: [],
@@ -85,6 +89,7 @@ exports.likeEvent = {
   matchExtensionMimeType: false,
   version:                1.0,
   toDocument:             true,
+  authenticated: true,
   inputs: {
     required: [ 'tco_id', 'id' ],
     optional: [],
