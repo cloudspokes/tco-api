@@ -6,14 +6,14 @@ exports.session = function(api, next){
     };
 
     api.session.save = function(connection, session, next){
-        var key = api.session.prefix + connection.id.split("-")[0];
+        var key = api.session.prefix + connection.id;
         api.cache.save(key, session, api.session.duration, function(error, new_flag){
             if(typeof next == "function"){ next(error); };
         });
     };
 
     api.session.load = function(connection, next){
-        var key = api.session.prefix + connection.id.split("-")[0];
+        var key = api.session.prefix + connection.id;
         api.cache.load(key, function(error, session, expireTimestamp, createdAt, readAt){
             if(typeof next == "function"){
                 next(error, session, expireTimestamp, createdAt, readAt);
@@ -22,7 +22,7 @@ exports.session = function(api, next){
     };
 
     api.session.delete = function(connection, next){
-        var key = api.session.prefix + connection.id.split("-")[0];
+        var key = api.session.prefix + connection.id;
         api.cache.destroy(key, function(error, resp){
             if(typeof next == "function"){
                 next(connection, error);
