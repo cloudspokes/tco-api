@@ -10,7 +10,7 @@ exports.news = function(api, next){
         var sql = "SELECT news.id, unique_id__c as tco_id, " +
           "news.name, source_url__c as source_url, source__c as source, " +
           "to_char(news.createddate, 'YYYY-MM-DD HH24:MI:SS') as creation_date, " +
-          "content__c as content " +
+          "content__c as content, 'jeffdonthemic' as post_member, 'img/dummy-news-image.png' as image_url " +
           "FROM salesforce.tco_news__c as news INNER JOIN salesforce.tco__c " +
           "ON news.tco__c = tco__c.sfid " +
           "WHERE unique_id__c = $1 AND news.id = $2";
@@ -27,7 +27,7 @@ exports.news = function(api, next){
         var sql = "SELECT news.id, unique_id__c as tco_id, " +
           "news.name, source_url__c as source_url, source__c as source, " +
           "to_char(news.createddate, 'YYYY-MM-DD HH24:MI:SS') as creation_date, " +
-          "content__c as content " +
+          "content__c as content, 'jeffdonthemic' as post_member, 'img/dummy-news-image.png' as image_url " +
           "FROM salesforce.tco_news__c as news INNER JOIN salesforce.tco__c " +
           "ON news.tco__c = tco__c.sfid " +
           "WHERE unique_id__c = $1";
